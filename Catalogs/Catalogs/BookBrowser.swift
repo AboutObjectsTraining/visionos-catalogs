@@ -18,8 +18,11 @@ struct BookBrowser: View {
                     BookCell(book: book)
                 }
             }
-            .onDelete { indexSet in
-                viewModel.removeBooks(atOffsets: indexSet)
+            .onDelete { offsets in
+                viewModel.removeBooks(atOffsets: offsets)
+            }
+            .onMove { offsets, targetOffset in
+                viewModel.moveBooks(atOffsets: offsets, toOffset: targetOffset)
             }
         }
         .padding(.bottom, 24)

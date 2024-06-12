@@ -49,7 +49,11 @@ extension CatalogsViewModel {
         }
     }
         
-    func removeBooks(atOffsets indexSet: IndexSet) {
-        bookCatalog.remove(atOffsets: indexSet)
+    func removeBooks(atOffsets offsets: IndexSet) {
+        bookCatalog.remove(atOffsets: offsets)
+    }
+    
+    func moveBooks(atOffsets offsets: IndexSet, toOffset offset: Int) {
+        bookCatalog.move(atOffsets: offsets, toOffset: offset)
     }
 }
