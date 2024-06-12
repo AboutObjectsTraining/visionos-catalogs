@@ -35,6 +35,7 @@
 		B4E1CB492C18E83D00A67AF3 /* War of the Worlds.jpg in Resources */ = {isa = PBXBuildFile; fileRef = B4E1CB382C18E83D00A67AF3 /* War of the Worlds.jpg */; };
 		B4E1CB4B2C19052C00A67AF3 /* BookBrowser.swift in Sources */ = {isa = PBXBuildFile; fileRef = B4E1CB4A2C19052C00A67AF3 /* BookBrowser.swift */; };
 		B4E1CB4D2C19057700A67AF3 /* BookCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = B4E1CB4C2C19057700A67AF3 /* BookCell.swift */; };
+		B4E1CB4F2C19281200A67AF3 /* CompletionProgressViewStyle.swift in Sources */ = {isa = PBXBuildFile; fileRef = B4E1CB4E2C19281200A67AF3 /* CompletionProgressViewStyle.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -68,6 +69,7 @@
 		B4E1CB382C18E83D00A67AF3 /* War of the Worlds.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = "War of the Worlds.jpg"; sourceTree = "<group>"; };
 		B4E1CB4A2C19052C00A67AF3 /* BookBrowser.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BookBrowser.swift; sourceTree = "<group>"; };
 		B4E1CB4C2C19057700A67AF3 /* BookCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BookCell.swift; sourceTree = "<group>"; };
+		B4E1CB4E2C19281200A67AF3 /* CompletionProgressViewStyle.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CompletionProgressViewStyle.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -109,6 +111,7 @@
 				B4E1CB1D2C18DFA100A67AF3 /* CatalogsViewModel.swift */,
 				B4E1CB4A2C19052C00A67AF3 /* BookBrowser.swift */,
 				B4E1CB4C2C19057700A67AF3 /* BookCell.swift */,
+				B4E1CB4E2C19281200A67AF3 /* CompletionProgressViewStyle.swift */,
 				B4E1CB122C18DE3F00A67AF3 /* Assets.xcassets */,
 				B4E1CB172C18DE3F00A67AF3 /* Info.plist */,
 				B4E1CB142C18DE3F00A67AF3 /* Preview Content */,
@@ -267,6 +270,7 @@
 				B4E1CB0F2C18DE3E00A67AF3 /* ContentView.swift in Sources */,
 				B4E1CB4B2C19052C00A67AF3 /* BookBrowser.swift in Sources */,
 				B4E1CB0D2C18DE3E00A67AF3 /* CatalogsApp.swift in Sources */,
+				B4E1CB4F2C19281200A67AF3 /* CompletionProgressViewStyle.swift in Sources */,
 				B4E1CB282C18E5C900A67AF3 /* Book.swift in Sources */,
 				B4E1CB4D2C19057700A67AF3 /* BookCell.swift in Sources */,
 				B4E1CB252C18E58A00A67AF3 /* BookCatalog.swift in Sources */,

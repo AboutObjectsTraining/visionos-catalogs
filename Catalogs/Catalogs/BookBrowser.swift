@@ -6,7 +6,7 @@
 import SwiftUI
 
 struct BookBrowser: View {
-    @Bindable var viewModel: CatalogsViewModel
+    var viewModel: CatalogsViewModel
     
     var body: some View {
         VStack {
@@ -20,6 +20,7 @@ struct BookBrowser: View {
                     }
                 }
             }
+            .padding(.bottom, 24)
         }
         .onAppear { viewModel.loadBooks() }
     }

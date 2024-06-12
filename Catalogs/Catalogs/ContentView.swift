@@ -28,6 +28,7 @@ struct ContentView: View {
             }
             .navigationTitle("Catalogs")
         }
+        .frame(minWidth: 600)
     }
 }
 
