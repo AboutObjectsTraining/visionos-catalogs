@@ -12,23 +12,27 @@ struct ContentView: View {
     
     var body: some View {
         NavigationStack {
-            TabView {
+            TabView(selection: $viewModel.selectedTab) {
                 BookBrowser(viewModel: viewModel)
                     .tabItem {
                         Label("Books", systemImage: "books.vertical.fill")
                     }
+                    .tag(Tab.books)
                 ObjectBrowser()
                     .tabItem {
                         Label("3D Models", systemImage: "view.3d")
                     }
+                    .tag(Tab.objects)
                 SettingsView()
                     .tabItem {
                         Label("Settings", systemImage: "gear")
                     }
+                    .tag(Tab.settings)
             }
-            .navigationTitle("Catalogs")
+            .navigationBarTitleDisplayMode(.inline)
+            .navigationTitle(viewModel.selectedTab.rawValue)
         }
-        .frame(minWidth: 600)
+        .frame(minWidth: 600, maxWidth: 1000, minHeight: 500)
     }
 }
 
@@ -36,7 +40,8 @@ struct ContentView: View {
 struct ObjectBrowser: View {
     
     var body: some View {
-        Text("Object Browser")
+        Text("No 3D Models")
+            .font(.headline)
     }
 }
 
@@ -47,6 +52,3 @@ struct SettingsView: View {
     }
 }
 
-//#Preview(windowStyle: .automatic) {
-//    ContentView()
-//}

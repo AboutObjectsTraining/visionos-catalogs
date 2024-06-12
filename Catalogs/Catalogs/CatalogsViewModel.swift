@@ -5,11 +5,27 @@
 
 import SwiftUI
 
+enum Tab: String {
+    case books = "Books"
+    case objects = "3D Models"
+    case settings = "Settings"
+}
+
+enum BookCatalogStyle {
+    case list
+    case grid
+}
+
 @Observable final class CatalogsViewModel {
     
     private let bookDataStore: BookDataStore
     
-    private(set) var bookCatalog: BookCatalog
+    var bookCatalog: BookCatalog
+    
+    var bookCatalogStyle = BookCatalogStyle.list
+    var selectedTab = Tab.books
+    
+    var booksCount: Int { bookCatalog.books.count }
     
     init(bookDataStore: BookDataStore = BookDataStore()) {
         self.bookDataStore = bookDataStore
@@ -31,5 +47,9 @@ extension CatalogsViewModel {
                 print("Unable to fetch BookCatalog from \(bookDataStore) due to \(error)")
             }
         }
+    }
+        
+    func removeBooks(atOffsets indexSet: IndexSet) {
+        bookCatalog.remove(atOffsets: indexSet)
     }
 }

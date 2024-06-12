@@ -14,6 +14,6 @@ import SwiftUI
             ContentView(viewModel: viewModel)
         }
         .defaultSize(width: 640, height: 860)
-        .windowResizability(.contentMinSize)
+        .windowResizability(.contentSize)
     }
 }

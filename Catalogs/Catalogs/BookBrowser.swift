@@ -6,22 +6,119 @@
 import SwiftUI
 
 struct BookBrowser: View {
-    var viewModel: CatalogsViewModel
+    @Bindable var viewModel: CatalogsViewModel
+    
+    var bookList: some View {
+        // TODO: Add selection support to List?
+        List {
+            ForEach(viewModel.bookCatalog.books) { book in
+                NavigationLink {
+                    BookDetail(book: book)
+                } label: {
+                    BookCell(book: book)
+                }
+            }
+            .onDelete { indexSet in
+                viewModel.removeBooks(atOffsets: indexSet)
+            }
+        }
+        .padding(.bottom, 24)
+    }
+    
+    var noBooksMessage: some View {
+        VStack {
+            Spacer()
+            Text("No Books")
+                .font(.headline)
+            Text("Tap the + button to add a book to the catalog.")
+                .font(.subheadline)
+            Spacer()
+        }
+    }
     
     var body: some View {
         VStack {
-            // TODO: Add selection support to List
-            List {
-                ForEach(viewModel.bookCatalog.books) { book in
-                    NavigationLink {
-                        BookDetail(book: book)
-                    } label: {
-                        BookCell(book: book)
-                    }
+            if viewModel.bookCatalog.hasBooks {
+                if viewModel.bookCatalogStyle == .list {
+                    bookList
+                } else {
+                    BookGrid(viewModel: viewModel)
                 }
+            } else {
+                noBooksMessage
             }
-            .padding(.bottom, 24)
+        }
+        .toolbar {
+            ToolbarItemGroup(placement: .topBarTrailing) {
+                // TODO: Implement Add Book sheet.
+                EditButton()
+                Button(action: { }) { Image.plus }
+                Text("\(viewModel.booksCount) items")
+            }
+//            ToolbarItem(placement: .bottomOrnament) {
+//                Picker("", selection: $viewModel.bookCatalogStyle) {
+//                    Text("List")
+//                        .tag(BookCatalogStyle.list)
+//                    Text("Grid")
+//                        .tag(BookCatalogStyle.grid)
+//                }
+//                .pickerStyle(.segmented)
+//                .background(Material.thin, in: Capsule())
+//                .frame(width: 240)
+//            }
+        }
+        .ornament(attachmentAnchor: .scene(.bottom), contentAlignment: .top) {
+            HStack {
+                Picker("", selection: $viewModel.bookCatalogStyle) {
+                    Text("List")
+                        .tag(BookCatalogStyle.list)
+                    Text("Grid")
+                        .tag(BookCatalogStyle.grid)
+                }
+                .background(.thinMaterial, in: Capsule())
+            }
+            .padding(.horizontal, 12)
+            .frame(width: 240, height: 72)
+            .pickerStyle(.segmented)
+            .glassBackgroundEffect()
         }
         .onAppear { viewModel.loadBooks() }
     }
 }
+
+struct BookGrid: View {
+    var viewModel: CatalogsViewModel
+    
+    static let gridItems = [
+        GridItem(.adaptive(minimum: 150, maximum: 220), spacing: 24, alignment: .top)
+    ]
+    
+    var body: some View {
+        ScrollView {
+            LazyVGrid(columns: Self.gridItems) {
+                ForEach(viewModel.bookCatalog.books) { book in
+                    AsyncImage(url: book.artworkUrl) { image in
+                        image
+                            .resizable()
+                            .scaledToFit()
+                    } placeholder: {
+                        ProgressView()
+                    }
+                }
+            }
+        }
+        .padding(.horizontal, 24)
+    }
+}
+
+//struct BookBrowser_Previews: PreviewProvider {
+//    static var viewModel: CatalogsViewModel = {
+//        let vm = CatalogsViewModel()
+//        vm.bookCatalog.books = []
+//        return vm
+//    }()
+//    
+//    static var previews: some View {
+//        BookBrowser(viewModel: viewModel)
+//    }
+//}
