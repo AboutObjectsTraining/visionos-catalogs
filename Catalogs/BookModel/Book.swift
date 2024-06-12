@@ -4,10 +4,7 @@
 import Foundation
 import Observation
 
-@Observable class Book: Codable, Identifiable/*, Hashable*/ {
-    //    static func == (lhs: Book, rhs: Book) -> Bool {
-    //        lhs.id == rhs.id
-    //    }
+@Observable class Book: Codable, Identifiable {
     
     enum CodingKeys: String, CodingKey {
         case id
@@ -58,10 +55,4 @@ import Observation
         try container.encode(author, forKey: .author)
         try container.encode(percentComplete, forKey: .percentComplete)
     }
-
-
-//    func hash(into hasher: inout Hasher) {
-//        hasher.combine(id)
-//    }
-    
 }
