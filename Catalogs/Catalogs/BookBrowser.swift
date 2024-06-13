@@ -42,7 +42,7 @@ struct BookBrowser: View {
     var body: some View {
         VStack {
             if viewModel.bookCatalog.hasBooks {
-                if viewModel.bookCatalogStyle == .list {
+                if viewModel.presentationStyle == .list {
                     bookList
                 } else {
                     BookGrid(viewModel: viewModel)
@@ -72,11 +72,11 @@ struct BookBrowser: View {
         }
         .ornament(attachmentAnchor: .scene(.bottom), contentAlignment: .top) {
             HStack {
-                Picker("", selection: $viewModel.bookCatalogStyle) {
+                Picker("", selection: $viewModel.presentationStyle) {
                     Text("List")
-                        .tag(BookCatalogStyle.list)
+                        .tag(PresentationStyle.list)
                     Text("Grid")
-                        .tag(BookCatalogStyle.grid)
+                        .tag(PresentationStyle.grid)
                 }
                 .background(.thinMaterial, in: Capsule())
             }

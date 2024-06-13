@@ -7,6 +7,13 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		B40B89582C1B5F7200F8FA47 /* ObjectCatalog.json in Resources */ = {isa = PBXBuildFile; fileRef = B40B89572C1B5F7200F8FA47 /* ObjectCatalog.json */; };
+		B40B895D2C1B653000F8FA47 /* Toy Biplane.usdz in Resources */ = {isa = PBXBuildFile; fileRef = B40B895B2C1B652F00F8FA47 /* Toy Biplane.usdz */; };
+		B40B895E2C1B653000F8FA47 /* Toy Car.usdz in Resources */ = {isa = PBXBuildFile; fileRef = B40B895C2C1B653000F8FA47 /* Toy Car.usdz */; };
+		B44D98702C1B49F7002752F9 /* DataStore.swift in Sources */ = {isa = PBXBuildFile; fileRef = B44D986F2C1B49F7002752F9 /* DataStore.swift */; };
+		B44D98722C1B54EA002752F9 /* SpatialObjectBrowser.swift in Sources */ = {isa = PBXBuildFile; fileRef = B44D98712C1B54EA002752F9 /* SpatialObjectBrowser.swift */; };
+		B4BDFFDF2C1B47AA0011EBF7 /* SpatialObjectCatalog.swift in Sources */ = {isa = PBXBuildFile; fileRef = B4BDFFDE2C1B47AA0011EBF7 /* SpatialObjectCatalog.swift */; };
+		B4BDFFE12C1B47C90011EBF7 /* SpatialObject.swift in Sources */ = {isa = PBXBuildFile; fileRef = B4BDFFE02C1B47C90011EBF7 /* SpatialObject.swift */; };
 		B4E1CB0B2C18DE3E00A67AF3 /* RealityKitContent in Frameworks */ = {isa = PBXBuildFile; productRef = B4E1CB0A2C18DE3E00A67AF3 /* RealityKitContent */; };
 		B4E1CB0D2C18DE3E00A67AF3 /* CatalogsApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = B4E1CB0C2C18DE3E00A67AF3 /* CatalogsApp.swift */; };
 		B4E1CB0F2C18DE3E00A67AF3 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B4E1CB0E2C18DE3E00A67AF3 /* ContentView.swift */; };
@@ -15,7 +22,6 @@
 		B4E1CB1E2C18DFA100A67AF3 /* CatalogsViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = B4E1CB1D2C18DFA100A67AF3 /* CatalogsViewModel.swift */; };
 		B4E1CB242C18E58A00A67AF3 /* BookCatalog.json in Resources */ = {isa = PBXBuildFile; fileRef = B4E1CB212C18E58A00A67AF3 /* BookCatalog.json */; };
 		B4E1CB252C18E58A00A67AF3 /* BookCatalog.swift in Sources */ = {isa = PBXBuildFile; fileRef = B4E1CB222C18E58A00A67AF3 /* BookCatalog.swift */; };
-		B4E1CB262C18E58A00A67AF3 /* BookDataStore.swift in Sources */ = {isa = PBXBuildFile; fileRef = B4E1CB232C18E58A00A67AF3 /* BookDataStore.swift */; };
 		B4E1CB282C18E5C900A67AF3 /* Book.swift in Sources */ = {isa = PBXBuildFile; fileRef = B4E1CB272C18E5C900A67AF3 /* Book.swift */; };
 		B4E1CB3A2C18E83D00A67AF3 /* 1984.jpg in Resources */ = {isa = PBXBuildFile; fileRef = B4E1CB292C18E83D00A67AF3 /* 1984.jpg */; };
 		B4E1CB3B2C18E83D00A67AF3 /* Anna Karenina.jpg in Resources */ = {isa = PBXBuildFile; fileRef = B4E1CB2A2C18E83D00A67AF3 /* Anna Karenina.jpg */; };
@@ -40,6 +46,13 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		B40B89572C1B5F7200F8FA47 /* ObjectCatalog.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = ObjectCatalog.json; sourceTree = "<group>"; };
+		B40B895B2C1B652F00F8FA47 /* Toy Biplane.usdz */ = {isa = PBXFileReference; lastKnownFileType = file.usdz; path = "Toy Biplane.usdz"; sourceTree = "<group>"; };
+		B40B895C2C1B653000F8FA47 /* Toy Car.usdz */ = {isa = PBXFileReference; lastKnownFileType = file.usdz; path = "Toy Car.usdz"; sourceTree = "<group>"; };
+		B44D986F2C1B49F7002752F9 /* DataStore.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DataStore.swift; sourceTree = "<group>"; };
+		B44D98712C1B54EA002752F9 /* SpatialObjectBrowser.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SpatialObjectBrowser.swift; sourceTree = "<group>"; };
+		B4BDFFDE2C1B47AA0011EBF7 /* SpatialObjectCatalog.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SpatialObjectCatalog.swift; sourceTree = "<group>"; };
+		B4BDFFE02C1B47C90011EBF7 /* SpatialObject.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SpatialObject.swift; sourceTree = "<group>"; };
 		B4E1CB052C18DE3E00A67AF3 /* Catalogs.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Catalogs.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		B4E1CB092C18DE3E00A67AF3 /* RealityKitContent */ = {isa = PBXFileReference; lastKnownFileType = wrapper; path = RealityKitContent; sourceTree = "<group>"; };
 		B4E1CB0C2C18DE3E00A67AF3 /* CatalogsApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CatalogsApp.swift; sourceTree = "<group>"; };
@@ -50,7 +63,6 @@
 		B4E1CB1D2C18DFA100A67AF3 /* CatalogsViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CatalogsViewModel.swift; sourceTree = "<group>"; };
 		B4E1CB212C18E58A00A67AF3 /* BookCatalog.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = BookCatalog.json; sourceTree = "<group>"; };
 		B4E1CB222C18E58A00A67AF3 /* BookCatalog.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BookCatalog.swift; sourceTree = "<group>"; };
-		B4E1CB232C18E58A00A67AF3 /* BookDataStore.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BookDataStore.swift; sourceTree = "<group>"; };
 		B4E1CB272C18E5C900A67AF3 /* Book.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Book.swift; sourceTree = "<group>"; };
 		B4E1CB292C18E83D00A67AF3 /* 1984.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = 1984.jpg; sourceTree = "<group>"; };
 		B4E1CB2A2C18E83D00A67AF3 /* Anna Karenina.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = "Anna Karenina.jpg"; sourceTree = "<group>"; };
@@ -86,11 +98,28 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		B40B895A2C1B651900F8FA47 /* 3D Models */ = {
+			isa = PBXGroup;
+			children = (
+				B40B895B2C1B652F00F8FA47 /* Toy Biplane.usdz */,
+				B40B895C2C1B653000F8FA47 /* Toy Car.usdz */,
+			);
+			path = "3D Models";
+			sourceTree = "<group>";
+		};
+		B4BDFFDA2C1B46FF0011EBF7 /* Browsers */ = {
+			isa = PBXGroup;
+			children = (
+				B4E1CB4A2C19052C00A67AF3 /* BookBrowser.swift */,
+				B4E1CB4C2C19057700A67AF3 /* BookCell.swift */,
+				B44D98712C1B54EA002752F9 /* SpatialObjectBrowser.swift */,
+			);
+			name = Browsers;
+			sourceTree = "<group>";
+		};
 		B4E1CAFC2C18DE3E00A67AF3 = {
 			isa = PBXGroup;
 			children = (
-				B4E1CB1F2C18E4C800A67AF3 /* BookModel */,
-				B4E1CB202C18E52E00A67AF3 /* SpatialObjectModel */,
 				B4E1CB072C18DE3E00A67AF3 /* Catalogs */,
 				B4E1CB082C18DE3E00A67AF3 /* Packages */,
 				B4E1CB062C18DE3E00A67AF3 /* Products */,
@@ -108,11 +137,11 @@
 		B4E1CB072C18DE3E00A67AF3 /* Catalogs */ = {
 			isa = PBXGroup;
 			children = (
+				B4E1CB1F2C18E4C800A67AF3 /* Model */,
 				B4E1CB0C2C18DE3E00A67AF3 /* CatalogsApp.swift */,
 				B4E1CB0E2C18DE3E00A67AF3 /* ContentView.swift */,
 				B4E1CB1D2C18DFA100A67AF3 /* CatalogsViewModel.swift */,
-				B4E1CB4A2C19052C00A67AF3 /* BookBrowser.swift */,
-				B4E1CB4C2C19057700A67AF3 /* BookCell.swift */,
+				B4BDFFDA2C1B46FF0011EBF7 /* Browsers */,
 				B4E1CB502C1A346D00A67AF3 /* Image+Extensions.swift */,
 				B4E1CB4E2C19281200A67AF3 /* CompletionProgressViewStyle.swift */,
 				B4E1CB122C18DE3F00A67AF3 /* Assets.xcassets */,
@@ -138,23 +167,20 @@
 			path = "Preview Content";
 			sourceTree = "<group>";
 		};
-		B4E1CB1F2C18E4C800A67AF3 /* BookModel */ = {
+		B4E1CB1F2C18E4C800A67AF3 /* Model */ = {
 			isa = PBXGroup;
 			children = (
+				B44D986F2C1B49F7002752F9 /* DataStore.swift */,
 				B4E1CB272C18E5C900A67AF3 /* Book.swift */,
 				B4E1CB222C18E58A00A67AF3 /* BookCatalog.swift */,
-				B4E1CB232C18E58A00A67AF3 /* BookDataStore.swift */,
+				B4BDFFE02C1B47C90011EBF7 /* SpatialObject.swift */,
+				B4BDFFDE2C1B47AA0011EBF7 /* SpatialObjectCatalog.swift */,
 				B4E1CB212C18E58A00A67AF3 /* BookCatalog.json */,
+				B40B89572C1B5F7200F8FA47 /* ObjectCatalog.json */,
 				B4E1CB392C18E83D00A67AF3 /* Cover Images */,
+				B40B895A2C1B651900F8FA47 /* 3D Models */,
 			);
-			path = BookModel;
-			sourceTree = "<group>";
-		};
-		B4E1CB202C18E52E00A67AF3 /* SpatialObjectModel */ = {
-			isa = PBXGroup;
-			children = (
-			);
-			path = SpatialObjectModel;
+			path = Model;
 			sourceTree = "<group>";
 		};
 		B4E1CB392C18E83D00A67AF3 /* Cover Images */ = {
@@ -241,6 +267,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				B40B89582C1B5F7200F8FA47 /* ObjectCatalog.json in Resources */,
 				B4E1CB162C18DE3F00A67AF3 /* Preview Assets.xcassets in Resources */,
 				B4E1CB432C18E83D00A67AF3 /* The Iliad.jpg in Resources */,
 				B4E1CB422C18E83D00A67AF3 /* The Brothers Karamozov.jpg in Resources */,
@@ -250,6 +277,7 @@
 				B4E1CB3E2C18E83D00A67AF3 /* Julius Caesar.jpg in Resources */,
 				B4E1CB412C18E83D00A67AF3 /* Romeo and Juliet.jpg in Resources */,
 				B4E1CB402C18E83D00A67AF3 /* Pride and Prejudice.jpg in Resources */,
+				B40B895D2C1B653000F8FA47 /* Toy Biplane.usdz in Resources */,
 				B4E1CB462C18E83D00A67AF3 /* The Time Machine.jpg in Resources */,
 				B4E1CB3F2C18E83D00A67AF3 /* Much Ado About Nothing.jpg in Resources */,
 				B4E1CB242C18E58A00A67AF3 /* BookCatalog.json in Resources */,
@@ -260,6 +288,7 @@
 				B4E1CB442C18E83D00A67AF3 /* The Odyssey.jpg in Resources */,
 				B4E1CB3C2C18E83D00A67AF3 /* Emma.jpg in Resources */,
 				B4E1CB3D2C18E83D00A67AF3 /* Great Expectations.jpg in Resources */,
+				B40B895E2C1B653000F8FA47 /* Toy Car.usdz in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -275,10 +304,13 @@
 				B4E1CB4B2C19052C00A67AF3 /* BookBrowser.swift in Sources */,
 				B4E1CB0D2C18DE3E00A67AF3 /* CatalogsApp.swift in Sources */,
 				B4E1CB4F2C19281200A67AF3 /* CompletionProgressViewStyle.swift in Sources */,
+				B4BDFFE12C1B47C90011EBF7 /* SpatialObject.swift in Sources */,
 				B4E1CB282C18E5C900A67AF3 /* Book.swift in Sources */,
+				B44D98702C1B49F7002752F9 /* DataStore.swift in Sources */,
 				B4E1CB4D2C19057700A67AF3 /* BookCell.swift in Sources */,
+				B44D98722C1B54EA002752F9 /* SpatialObjectBrowser.swift in Sources */,
+				B4BDFFDF2C1B47AA0011EBF7 /* SpatialObjectCatalog.swift in Sources */,
 				B4E1CB252C18E58A00A67AF3 /* BookCatalog.swift in Sources */,
-				B4E1CB262C18E58A00A67AF3 /* BookDataStore.swift in Sources */,
 				B4E1CB1E2C18DFA100A67AF3 /* CatalogsViewModel.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

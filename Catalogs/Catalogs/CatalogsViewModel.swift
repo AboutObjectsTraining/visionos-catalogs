@@ -11,25 +11,34 @@ enum Tab: String {
     case settings = "Settings"
 }
 
-enum BookCatalogStyle {
+enum PresentationStyle {
     case list
     case grid
 }
 
 @Observable final class CatalogsViewModel {
+    private static let booksStoreName = "BookCatalog"
+    private let booksDataStore: DataStore
+    private(set) var bookCatalog: BookCatalog
     
-    private let bookDataStore: BookDataStore
+    private static let objectsStoreName = "ObjectCatalog"
+    private let objectsDataStore: DataStore
+    private(set) var objectCatalog: SpatialObjectCatalog
     
-    var bookCatalog: BookCatalog
-    
-    var bookCatalogStyle = BookCatalogStyle.list
+    var presentationStyle = PresentationStyle.list
     var selectedTab = Tab.books
     
     var booksCount: Int { bookCatalog.books.count }
     
-    init(bookDataStore: BookDataStore = BookDataStore()) {
-        self.bookDataStore = bookDataStore
+    init(
+        booksDataStore: DataStore = DataStore(storeName: booksStoreName),
+        objectsDataStore: DataStore = DataStore(storeName: objectsStoreName)
+    ) {
+        self.booksDataStore = booksDataStore
         self.bookCatalog = BookCatalog(title: "Empty", books: [])
+        
+        self.objectsDataStore = objectsDataStore
+        self.objectCatalog = SpatialObjectCatalog(title: "Empty", objects: [])
     }
 }
 
@@ -42,9 +51,9 @@ extension CatalogsViewModel {
         
         Task {
             do {
-                bookCatalog = try await bookDataStore.fetchWithAsyncAwait()
+                bookCatalog = try await booksDataStore.fetchBookCatalog()
             } catch {
-                print("Unable to fetch BookCatalog from \(bookDataStore) due to \(error)")
+                print("Unable to fetch BookCatalog from \(booksDataStore) due to \(error)")
             }
         }
     }

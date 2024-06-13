@@ -1,0 +1,77 @@
+{
+  "id" : "F345D178-F31B-4D71-9FBD-A684A974A68A",
+  "title" : "Literature 101 📚",
+  "books" : [
+    {
+      "percentComplete" : 0.7,
+      "id" : "02CEF533-3878-4B18-8ECC-97866C9F263E",
+      "title" : "Julius Caesar",
+      "author" : "William Shakespeare",
+      "year" : "2012",
+    },
+    {
+      "percentComplete" : 0.5,
+      "id" : "C6CA765D-034A-4ADA-A25E-41541A7FC3E1",
+      "title" : "War of the Worlds",
+      "author" : "H. G. Wells",
+      "year" : "1999",
+    },
+    {
+      "percentComplete" : 0.9,
+      "id" : "0A251588-A458-4E58-8645-BE923EC53FB7",
+      "title" : "Romeo and Juliet",
+      "author" : "William Shakespeare",
+      "year" : "2019",
+    },
+    {
+      "percentComplete" : 0.3,
+      "id" : "51306395-09B5-4557-B598-0911EC3F97B3",
+      "title" : "1984",
+      "author" : "George Orwell",
+      "year" : "2020",
+    },
+    {
+      "percentComplete" : 1.0,
+      "id" : "07B675C3-1C84-4486-ABF8-25E89CB71A73",
+      "title" : "The Time Machine",
+      "author" : "H. G. Wells",
+      "year" : "1989",
+    },
+    {
+      "percentComplete" : 0,
+      "id" : "75C52BAF-4C00-4CB7-A0F0-D5A5D8E0836F",
+      "title" : "Pride and Prejudice",
+      "author" : "Jane Austen",
+      "year" : "2021",
+    },
+    {
+      "percentComplete" : 0,
+      "id" : "3CA19EEF-91D6-4E08-81AD-6B838C431C97",
+      "title" : "The Iliad",
+      "author" : "Homer",
+      "year" : "2019",
+    },
+    {
+      "percentComplete" : 0,
+      "id" : "E9B01AC2-DFFF-4D2D-A066-2D181FAAB18A",
+      "title" : "The Odyssey",
+      "author" : "Homer",
+      "year" : "2015",
+    },
+    {
+      "percentComplete" : 0,
+      "id" : "C62178B8-6206-4945-BF27-325A1F5CD7DD",
+      "title" : "Emma",
+      "author" : "Jane Austen",
+      "year" : "2020",
+    },
+    {
+      "percentComplete" : 0,
+      "id" : "AE39B07A-4FDC-4F54-B4D7-BBCDB7A02787",
+      "title" : "Much Ado About Nothing",
+      "author" : "William Shakespeare",
+      "year" : "1996",
+    }
+  ]
+}
+
