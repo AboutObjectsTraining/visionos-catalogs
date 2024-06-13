@@ -29,6 +29,7 @@ enum PresentationStyle {
     var selectedTab = Tab.books
     
     var booksCount: Int { bookCatalog.books.count }
+    var objectsCount: Int { objectCatalog.objects.count }
     
     init(
         booksDataStore: DataStore = DataStore(storeName: booksStoreName),
@@ -57,12 +58,24 @@ extension CatalogsViewModel {
             }
         }
     }
-        
+    
     func removeBooks(atOffsets offsets: IndexSet) {
         bookCatalog.remove(atOffsets: offsets)
     }
     
     func moveBooks(atOffsets offsets: IndexSet, toOffset offset: Int) {
         bookCatalog.move(atOffsets: offsets, toOffset: offset)
+    }
+
+    @MainActor func loadObjects() {
+        guard objectCatalog.objects.isEmpty else { return }
+        
+        Task {
+            do {
+                objectCatalog = try await objectsDataStore.fetchSpatialObjectCatalog()
+            } catch {
+                print("Unable to fetch SpatialObjectCatalog from \(objectsDataStore) due to \(error)")
+            }
+        }
     }
 }

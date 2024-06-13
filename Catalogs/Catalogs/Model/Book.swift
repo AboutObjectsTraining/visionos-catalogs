@@ -4,7 +4,7 @@
 import Foundation
 import Observation
 
-@Observable class Book: Codable, Identifiable {
+@Observable class Book: Codable, Identifiable, FileURLProtocol {
     
     enum CodingKeys: String, CodingKey {
         case id
@@ -19,12 +19,6 @@ import Observation
     var year: String
     var author: String
     var percentComplete = 0.0
-    
-    var artworkUrl: URL {
-        let title = title.isEmpty ? "unknown" : title
-        let url = Bundle.main.path(forResource: title, ofType: "jpg") ?? ""
-        return URL(fileURLWithPath: url)
-    }
     
     init(id: UUID = UUID(),
          title: String = "",

@@ -6,7 +6,7 @@
 import Foundation
 import Observation
 
-@Observable class SpatialObject: Codable, Identifiable {
+@Observable class SpatialObject: Codable, Identifiable, FileURLProtocol {
     
     enum CodingKeys: String, CodingKey {
         case id
@@ -15,9 +15,6 @@ import Observation
     
     var id = UUID()
     var title: String
-    
-    // TODO: urls, etc.
-    //var url: URLs
     
     init(title: String) {
         self.title = title

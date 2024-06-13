@@ -8,32 +8,6 @@ import SwiftUI
 struct BookCell: View {
     let book: Book
     
-    private var thumbnailPlaceholder: some View {
-        ZStack(alignment: .center) {
-            Rectangle()
-                .fill(.secondary)
-            Image(systemName: "photo")
-                .foregroundColor(.white)
-                .imageScale(.large)
-        }
-    }
-    
-    private var thumbnailView: some View {
-        AsyncImage(url: book.artworkUrl) { phase in
-            if let image = phase.image {
-                image
-                    .resizable()
-                    .aspectRatio(contentMode: .fit)
-            } else if phase.error == nil {
-                ProgressView()
-            } else {
-                thumbnailPlaceholder
-            }
-        }
-        .frame(width: 60, height: 90)
-        .padding(.horizontal, 12)
-    }
-    
     private var bookInfo: some View {
         VStack(alignment: .leading, spacing: 6) {
             Text("\(book.title)")
@@ -45,22 +19,13 @@ struct BookCell: View {
     
     var body: some View {
         HStack {
-            thumbnailView
+            ThumbnailView(artworkUrl: book.artworkUrl, width: 70)
             bookInfo
             Spacer()
             ProgressView(value: book.percentComplete)
                 .progressViewStyle(CompletionProgressViewStyle())
                 .padding(.trailing, 12)
         }
-    }
-}
-
-struct BookDetail: View {
-    var book: Book
-    
-    var body: some View {
-        Text("\(book.title)")
-            .font(.headline)
     }
 }
 

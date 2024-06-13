@@ -18,6 +18,8 @@ import Observation
     var title: String
     var objects: [SpatialObject]
     
+    var hasObjects: Bool { !objects.isEmpty }
+    
     init(title: String, objects: [SpatialObject]) {
         self.title = title
         self.objects = objects

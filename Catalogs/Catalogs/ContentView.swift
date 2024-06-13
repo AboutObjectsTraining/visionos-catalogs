@@ -18,9 +18,9 @@ struct ContentView: View {
                         Label("Books", systemImage: "books.vertical.fill")
                     }
                     .tag(Tab.books)
-                ObjectBrowser()
+                SpatialObjectBrowser(viewModel: viewModel)
                     .tabItem {
-                        Label("3D Models", systemImage: "view.3d")
+                        Label("Models", systemImage: "view.3d")
                     }
                     .tag(Tab.objects)
                 SettingsView()
@@ -36,14 +36,6 @@ struct ContentView: View {
     }
 }
 
-
-struct ObjectBrowser: View {
-    
-    var body: some View {
-        Text("No 3D Models")
-            .font(.headline)
-    }
-}
 
 struct SettingsView: View {
     

@@ -17,6 +17,13 @@
       "year" : "1999",
     },
     {
+      "percentComplete" : 0.1,
+      "id" : "C6CA765D-034A-4ADA-A25E-41541A7FC3E2",
+      "title" : "Sense and Sensibility",
+      "author" : "Jane Austen",
+      "year" : "1987",
+    },
+    {
       "percentComplete" : 0.9,
       "id" : "0A251588-A458-4E58-8645-BE923EC53FB7",
       "title" : "Romeo and Juliet",

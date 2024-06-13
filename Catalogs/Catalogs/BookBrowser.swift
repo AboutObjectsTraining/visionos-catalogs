@@ -54,21 +54,23 @@ struct BookBrowser: View {
         .toolbar {
             ToolbarItemGroup(placement: .topBarTrailing) {
                 // TODO: Implement Add Book sheet.
-                EditButton()
-                Button(action: { }) { Image.plus }
-                Text("\(viewModel.booksCount) items")
+                if viewModel.selectedTab == .books {
+                    EditButton()
+                    Button(action: { }) { Image.plus }
+                    Text("\(viewModel.booksCount) items")
+                }
             }
-//            ToolbarItem(placement: .bottomOrnament) {
-//                Picker("", selection: $viewModel.bookCatalogStyle) {
-//                    Text("List")
-//                        .tag(BookCatalogStyle.list)
-//                    Text("Grid")
-//                        .tag(BookCatalogStyle.grid)
-//                }
-//                .pickerStyle(.segmented)
-//                .background(Material.thin, in: Capsule())
-//                .frame(width: 240)
-//            }
+            //  ToolbarItem(placement: .bottomOrnament) {
+            //      Picker("", selection: $viewModel.bookCatalogStyle) {
+            //          Text("List")
+            //              .tag(BookCatalogStyle.list)
+            //          Text("Grid")
+            //              .tag(BookCatalogStyle.grid)
+            //      }
+            //      .pickerStyle(.segmented)
+            //      .background(Material.thin, in: Capsule())
+            //      .frame(width: 240)
+            //  }
         }
         .ornament(attachmentAnchor: .scene(.bottom), contentAlignment: .top) {
             HStack {

@@ -10,6 +10,24 @@
 		B40B89582C1B5F7200F8FA47 /* ObjectCatalog.json in Resources */ = {isa = PBXBuildFile; fileRef = B40B89572C1B5F7200F8FA47 /* ObjectCatalog.json */; };
 		B40B895D2C1B653000F8FA47 /* Toy Biplane.usdz in Resources */ = {isa = PBXBuildFile; fileRef = B40B895B2C1B652F00F8FA47 /* Toy Biplane.usdz */; };
 		B40B895E2C1B653000F8FA47 /* Toy Car.usdz in Resources */ = {isa = PBXBuildFile; fileRef = B40B895C2C1B653000F8FA47 /* Toy Car.usdz */; };
+		B40B89602C1B687E00F8FA47 /* Toy Rocket.usdz in Resources */ = {isa = PBXBuildFile; fileRef = B40B895F2C1B687E00F8FA47 /* Toy Rocket.usdz */; };
+		B40B89622C1B68B100F8FA47 /* Toy Drummer.usdz in Resources */ = {isa = PBXBuildFile; fileRef = B40B89612C1B68B100F8FA47 /* Toy Drummer.usdz */; };
+		B40B89642C1B6A3E00F8FA47 /* Directors Chair.usdz in Resources */ = {isa = PBXBuildFile; fileRef = B40B89632C1B6A3E00F8FA47 /* Directors Chair.usdz */; };
+		B40B89662C1B6A9000F8FA47 /* Nike Pegasus.usdz in Resources */ = {isa = PBXBuildFile; fileRef = B40B89652C1B6A9000F8FA47 /* Nike Pegasus.usdz */; };
+		B40B89692C1B6AD000F8FA47 /* Watering Can.usdz in Resources */ = {isa = PBXBuildFile; fileRef = B40B89672C1B6ACF00F8FA47 /* Watering Can.usdz */; };
+		B40B896A2C1B6AD000F8FA47 /* TV Set.usdz in Resources */ = {isa = PBXBuildFile; fileRef = B40B89682C1B6AD000F8FA47 /* TV Set.usdz */; };
+		B40B896C2C1B6B2100F8FA47 /* Toy Robot.usdz in Resources */ = {isa = PBXBuildFile; fileRef = B40B896B2C1B6B2100F8FA47 /* Toy Robot.usdz */; };
+		B40B896E2C1B768800F8FA47 /* FileURLProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = B40B896D2C1B768800F8FA47 /* FileURLProtocol.swift */; };
+		B40B89732C1B805B00F8FA47 /* Toy Car.jpg in Resources */ = {isa = PBXBuildFile; fileRef = B40B896F2C1B805A00F8FA47 /* Toy Car.jpg */; };
+		B40B89742C1B805B00F8FA47 /* Toy Biplane.jpg in Resources */ = {isa = PBXBuildFile; fileRef = B40B89702C1B805B00F8FA47 /* Toy Biplane.jpg */; };
+		B40B89752C1B805B00F8FA47 /* Toy Rocket.jpg in Resources */ = {isa = PBXBuildFile; fileRef = B40B89712C1B805B00F8FA47 /* Toy Rocket.jpg */; };
+		B40B89762C1B805B00F8FA47 /* Toy Robot.jpg in Resources */ = {isa = PBXBuildFile; fileRef = B40B89722C1B805B00F8FA47 /* Toy Robot.jpg */; };
+		B40B89782C1B816D00F8FA47 /* BookDetail.swift in Sources */ = {isa = PBXBuildFile; fileRef = B40B89772C1B816D00F8FA47 /* BookDetail.swift */; };
+		B40B897A2C1B8EA100F8FA47 /* ThumbnailView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B40B89792C1B8EA100F8FA47 /* ThumbnailView.swift */; };
+		B40B897C2C1B8F4F00F8FA47 /* SpatialObjectCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = B40B897B2C1B8F4F00F8FA47 /* SpatialObjectCell.swift */; };
+		B40B897E2C1B924600F8FA47 /* Toy Rocket.png in Resources */ = {isa = PBXBuildFile; fileRef = B40B897D2C1B924600F8FA47 /* Toy Rocket.png */; };
+		B40B89802C1B954100F8FA47 /* Toy Car.png in Resources */ = {isa = PBXBuildFile; fileRef = B40B897F2C1B954100F8FA47 /* Toy Car.png */; };
+		B40B89822C1B974000F8FA47 /* Toy Biplane.png in Resources */ = {isa = PBXBuildFile; fileRef = B40B89812C1B974000F8FA47 /* Toy Biplane.png */; };
 		B44D98702C1B49F7002752F9 /* DataStore.swift in Sources */ = {isa = PBXBuildFile; fileRef = B44D986F2C1B49F7002752F9 /* DataStore.swift */; };
 		B44D98722C1B54EA002752F9 /* SpatialObjectBrowser.swift in Sources */ = {isa = PBXBuildFile; fileRef = B44D98712C1B54EA002752F9 /* SpatialObjectBrowser.swift */; };
 		B4BDFFDF2C1B47AA0011EBF7 /* SpatialObjectCatalog.swift in Sources */ = {isa = PBXBuildFile; fileRef = B4BDFFDE2C1B47AA0011EBF7 /* SpatialObjectCatalog.swift */; };
@@ -49,6 +67,24 @@
 		B40B89572C1B5F7200F8FA47 /* ObjectCatalog.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = ObjectCatalog.json; sourceTree = "<group>"; };
 		B40B895B2C1B652F00F8FA47 /* Toy Biplane.usdz */ = {isa = PBXFileReference; lastKnownFileType = file.usdz; path = "Toy Biplane.usdz"; sourceTree = "<group>"; };
 		B40B895C2C1B653000F8FA47 /* Toy Car.usdz */ = {isa = PBXFileReference; lastKnownFileType = file.usdz; path = "Toy Car.usdz"; sourceTree = "<group>"; };
+		B40B895F2C1B687E00F8FA47 /* Toy Rocket.usdz */ = {isa = PBXFileReference; lastKnownFileType = file.usdz; path = "Toy Rocket.usdz"; sourceTree = "<group>"; };
+		B40B89612C1B68B100F8FA47 /* Toy Drummer.usdz */ = {isa = PBXFileReference; lastKnownFileType = file.usdz; path = "Toy Drummer.usdz"; sourceTree = "<group>"; };
+		B40B89632C1B6A3E00F8FA47 /* Directors Chair.usdz */ = {isa = PBXFileReference; lastKnownFileType = file.usdz; path = "Directors Chair.usdz"; sourceTree = "<group>"; };
+		B40B89652C1B6A9000F8FA47 /* Nike Pegasus.usdz */ = {isa = PBXFileReference; lastKnownFileType = file.usdz; path = "Nike Pegasus.usdz"; sourceTree = "<group>"; };
+		B40B89672C1B6ACF00F8FA47 /* Watering Can.usdz */ = {isa = PBXFileReference; lastKnownFileType = file.usdz; path = "Watering Can.usdz"; sourceTree = "<group>"; };
+		B40B89682C1B6AD000F8FA47 /* TV Set.usdz */ = {isa = PBXFileReference; lastKnownFileType = file.usdz; path = "TV Set.usdz"; sourceTree = "<group>"; };
+		B40B896B2C1B6B2100F8FA47 /* Toy Robot.usdz */ = {isa = PBXFileReference; lastKnownFileType = file.usdz; path = "Toy Robot.usdz"; sourceTree = "<group>"; };
+		B40B896D2C1B768800F8FA47 /* FileURLProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FileURLProtocol.swift; sourceTree = "<group>"; };
+		B40B896F2C1B805A00F8FA47 /* Toy Car.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = "Toy Car.jpg"; sourceTree = "<group>"; };
+		B40B89702C1B805B00F8FA47 /* Toy Biplane.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = "Toy Biplane.jpg"; sourceTree = "<group>"; };
+		B40B89712C1B805B00F8FA47 /* Toy Rocket.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = "Toy Rocket.jpg"; sourceTree = "<group>"; };
+		B40B89722C1B805B00F8FA47 /* Toy Robot.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = "Toy Robot.jpg"; sourceTree = "<group>"; };
+		B40B89772C1B816D00F8FA47 /* BookDetail.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BookDetail.swift; sourceTree = "<group>"; };
+		B40B89792C1B8EA100F8FA47 /* ThumbnailView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ThumbnailView.swift; sourceTree = "<group>"; };
+		B40B897B2C1B8F4F00F8FA47 /* SpatialObjectCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SpatialObjectCell.swift; sourceTree = "<group>"; };
+		B40B897D2C1B924600F8FA47 /* Toy Rocket.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Toy Rocket.png"; sourceTree = "<group>"; };
+		B40B897F2C1B954100F8FA47 /* Toy Car.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Toy Car.png"; sourceTree = "<group>"; };
+		B40B89812C1B974000F8FA47 /* Toy Biplane.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Toy Biplane.png"; sourceTree = "<group>"; };
 		B44D986F2C1B49F7002752F9 /* DataStore.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DataStore.swift; sourceTree = "<group>"; };
 		B44D98712C1B54EA002752F9 /* SpatialObjectBrowser.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SpatialObjectBrowser.swift; sourceTree = "<group>"; };
 		B4BDFFDE2C1B47AA0011EBF7 /* SpatialObjectCatalog.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SpatialObjectCatalog.swift; sourceTree = "<group>"; };
@@ -101,8 +137,22 @@
 		B40B895A2C1B651900F8FA47 /* 3D Models */ = {
 			isa = PBXGroup;
 			children = (
+				B40B89812C1B974000F8FA47 /* Toy Biplane.png */,
+				B40B897F2C1B954100F8FA47 /* Toy Car.png */,
+				B40B897D2C1B924600F8FA47 /* Toy Rocket.png */,
+				B40B89702C1B805B00F8FA47 /* Toy Biplane.jpg */,
+				B40B896F2C1B805A00F8FA47 /* Toy Car.jpg */,
+				B40B89722C1B805B00F8FA47 /* Toy Robot.jpg */,
+				B40B89712C1B805B00F8FA47 /* Toy Rocket.jpg */,
 				B40B895B2C1B652F00F8FA47 /* Toy Biplane.usdz */,
 				B40B895C2C1B653000F8FA47 /* Toy Car.usdz */,
+				B40B896B2C1B6B2100F8FA47 /* Toy Robot.usdz */,
+				B40B895F2C1B687E00F8FA47 /* Toy Rocket.usdz */,
+				B40B89612C1B68B100F8FA47 /* Toy Drummer.usdz */,
+				B40B89632C1B6A3E00F8FA47 /* Directors Chair.usdz */,
+				B40B89652C1B6A9000F8FA47 /* Nike Pegasus.usdz */,
+				B40B89682C1B6AD000F8FA47 /* TV Set.usdz */,
+				B40B89672C1B6ACF00F8FA47 /* Watering Can.usdz */,
 			);
 			path = "3D Models";
 			sourceTree = "<group>";
@@ -112,7 +162,10 @@
 			children = (
 				B4E1CB4A2C19052C00A67AF3 /* BookBrowser.swift */,
 				B4E1CB4C2C19057700A67AF3 /* BookCell.swift */,
+				B40B89772C1B816D00F8FA47 /* BookDetail.swift */,
 				B44D98712C1B54EA002752F9 /* SpatialObjectBrowser.swift */,
+				B40B897B2C1B8F4F00F8FA47 /* SpatialObjectCell.swift */,
+				B40B89792C1B8EA100F8FA47 /* ThumbnailView.swift */,
 			);
 			name = Browsers;
 			sourceTree = "<group>";
@@ -175,6 +228,7 @@
 				B4E1CB222C18E58A00A67AF3 /* BookCatalog.swift */,
 				B4BDFFE02C1B47C90011EBF7 /* SpatialObject.swift */,
 				B4BDFFDE2C1B47AA0011EBF7 /* SpatialObjectCatalog.swift */,
+				B40B896D2C1B768800F8FA47 /* FileURLProtocol.swift */,
 				B4E1CB212C18E58A00A67AF3 /* BookCatalog.json */,
 				B40B89572C1B5F7200F8FA47 /* ObjectCatalog.json */,
 				B4E1CB392C18E83D00A67AF3 /* Cover Images */,
@@ -267,19 +321,32 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				B40B896C2C1B6B2100F8FA47 /* Toy Robot.usdz in Resources */,
+				B40B89822C1B974000F8FA47 /* Toy Biplane.png in Resources */,
+				B40B89752C1B805B00F8FA47 /* Toy Rocket.jpg in Resources */,
 				B40B89582C1B5F7200F8FA47 /* ObjectCatalog.json in Resources */,
+				B40B89732C1B805B00F8FA47 /* Toy Car.jpg in Resources */,
 				B4E1CB162C18DE3F00A67AF3 /* Preview Assets.xcassets in Resources */,
+				B40B897E2C1B924600F8FA47 /* Toy Rocket.png in Resources */,
 				B4E1CB432C18E83D00A67AF3 /* The Iliad.jpg in Resources */,
 				B4E1CB422C18E83D00A67AF3 /* The Brothers Karamozov.jpg in Resources */,
+				B40B89742C1B805B00F8FA47 /* Toy Biplane.jpg in Resources */,
+				B40B89762C1B805B00F8FA47 /* Toy Robot.jpg in Resources */,
 				B4E1CB492C18E83D00A67AF3 /* War of the Worlds.jpg in Resources */,
+				B40B89622C1B68B100F8FA47 /* Toy Drummer.usdz in Resources */,
+				B40B89692C1B6AD000F8FA47 /* Watering Can.usdz in Resources */,
 				B4E1CB3A2C18E83D00A67AF3 /* 1984.jpg in Resources */,
 				B4E1CB3B2C18E83D00A67AF3 /* Anna Karenina.jpg in Resources */,
 				B4E1CB3E2C18E83D00A67AF3 /* Julius Caesar.jpg in Resources */,
+				B40B896A2C1B6AD000F8FA47 /* TV Set.usdz in Resources */,
 				B4E1CB412C18E83D00A67AF3 /* Romeo and Juliet.jpg in Resources */,
 				B4E1CB402C18E83D00A67AF3 /* Pride and Prejudice.jpg in Resources */,
 				B40B895D2C1B653000F8FA47 /* Toy Biplane.usdz in Resources */,
 				B4E1CB462C18E83D00A67AF3 /* The Time Machine.jpg in Resources */,
+				B40B89662C1B6A9000F8FA47 /* Nike Pegasus.usdz in Resources */,
+				B40B89802C1B954100F8FA47 /* Toy Car.png in Resources */,
 				B4E1CB3F2C18E83D00A67AF3 /* Much Ado About Nothing.jpg in Resources */,
+				B40B89602C1B687E00F8FA47 /* Toy Rocket.usdz in Resources */,
 				B4E1CB242C18E58A00A67AF3 /* BookCatalog.json in Resources */,
 				B4E1CB452C18E83D00A67AF3 /* The Possessed.jpg in Resources */,
 				B4E1CB132C18DE3F00A67AF3 /* Assets.xcassets in Resources */,
@@ -287,6 +354,7 @@
 				B4E1CB472C18E83D00A67AF3 /* Treasure Island.jpg in Resources */,
 				B4E1CB442C18E83D00A67AF3 /* The Odyssey.jpg in Resources */,
 				B4E1CB3C2C18E83D00A67AF3 /* Emma.jpg in Resources */,
+				B40B89642C1B6A3E00F8FA47 /* Directors Chair.usdz in Resources */,
 				B4E1CB3D2C18E83D00A67AF3 /* Great Expectations.jpg in Resources */,
 				B40B895E2C1B653000F8FA47 /* Toy Car.usdz in Resources */,
 			);
@@ -304,6 +372,8 @@
 				B4E1CB4B2C19052C00A67AF3 /* BookBrowser.swift in Sources */,
 				B4E1CB0D2C18DE3E00A67AF3 /* CatalogsApp.swift in Sources */,
 				B4E1CB4F2C19281200A67AF3 /* CompletionProgressViewStyle.swift in Sources */,
+				B40B896E2C1B768800F8FA47 /* FileURLProtocol.swift in Sources */,
+				B40B897C2C1B8F4F00F8FA47 /* SpatialObjectCell.swift in Sources */,
 				B4BDFFE12C1B47C90011EBF7 /* SpatialObject.swift in Sources */,
 				B4E1CB282C18E5C900A67AF3 /* Book.swift in Sources */,
 				B44D98702C1B49F7002752F9 /* DataStore.swift in Sources */,
@@ -311,7 +381,9 @@
 				B44D98722C1B54EA002752F9 /* SpatialObjectBrowser.swift in Sources */,
 				B4BDFFDF2C1B47AA0011EBF7 /* SpatialObjectCatalog.swift in Sources */,
 				B4E1CB252C18E58A00A67AF3 /* BookCatalog.swift in Sources */,
+				B40B897A2C1B8EA100F8FA47 /* ThumbnailView.swift in Sources */,
 				B4E1CB1E2C18DFA100A67AF3 /* CatalogsViewModel.swift in Sources */,
+				B40B89782C1B816D00F8FA47 /* BookDetail.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
