@@ -52,7 +52,7 @@ extension BookCatalog {
         save()
     }
     
-    func move(atOffsets offsets: IndexSet, toOffset offset: Int) {
+    func move(fromOffsets offsets: IndexSet, toOffset offset: Int) {
         books.move(fromOffsets: offsets, toOffset: offset)
     }
     

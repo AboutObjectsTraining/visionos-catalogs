@@ -5,6 +5,7 @@
 
 import Foundation
 import Observation
+import SwiftUI
 
 @Observable class SpatialObject: Codable, Identifiable, FileURLProtocol {
     

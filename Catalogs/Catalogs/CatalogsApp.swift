@@ -5,6 +5,10 @@
 
 import SwiftUI
 
+struct SpaceIDs {
+    static let spatialObjects = "Spatial Objects"
+}
+
 @main struct CatalogsApp: App {
     
     @State private var viewModel = CatalogsViewModel()
@@ -15,5 +19,10 @@ import SwiftUI
         }
         .defaultSize(width: 640, height: 960)
         .windowResizability(.contentSize)
+        
+        ImmersiveSpace(id: SpaceIDs.spatialObjects) {
+            SpatialObjectsView(viewModel: viewModel)
+        }
+        .immersionStyle(selection: .constant(.mixed), in: .mixed)
     }
 }

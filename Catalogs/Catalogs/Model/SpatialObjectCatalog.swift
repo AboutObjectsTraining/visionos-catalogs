@@ -39,3 +39,11 @@ import Observation
         try container.encode(objects, forKey: .objects)
     }
 }
+
+// MARK: - Actions
+extension SpatialObjectCatalog {
+    
+    func move(fromOffsets offsets: IndexSet, toOffset offset: Int) {
+        objects.move(fromOffsets: offsets, toOffset: offset)
+    }
+}

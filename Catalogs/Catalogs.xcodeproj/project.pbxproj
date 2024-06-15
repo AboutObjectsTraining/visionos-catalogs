@@ -28,6 +28,9 @@
 		B40B897E2C1B924600F8FA47 /* Toy Rocket.png in Resources */ = {isa = PBXBuildFile; fileRef = B40B897D2C1B924600F8FA47 /* Toy Rocket.png */; };
 		B40B89802C1B954100F8FA47 /* Toy Car.png in Resources */ = {isa = PBXBuildFile; fileRef = B40B897F2C1B954100F8FA47 /* Toy Car.png */; };
 		B40B89822C1B974000F8FA47 /* Toy Biplane.png in Resources */ = {isa = PBXBuildFile; fileRef = B40B89812C1B974000F8FA47 /* Toy Biplane.png */; };
+		B40B89842C1CC28400F8FA47 /* SpatialObjectsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B40B89832C1CC28400F8FA47 /* SpatialObjectsView.swift */; };
+		B40B89882C1DF25100F8FA47 /* Entity+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = B40B89872C1DF25100F8FA47 /* Entity+Extensions.swift */; };
+		B40B89932C1DF8A300F8FA47 /* Sunlight.skybox in Resources */ = {isa = PBXBuildFile; fileRef = B40B89902C1DF8A300F8FA47 /* Sunlight.skybox */; };
 		B44D98702C1B49F7002752F9 /* DataStore.swift in Sources */ = {isa = PBXBuildFile; fileRef = B44D986F2C1B49F7002752F9 /* DataStore.swift */; };
 		B44D98722C1B54EA002752F9 /* SpatialObjectBrowser.swift in Sources */ = {isa = PBXBuildFile; fileRef = B44D98712C1B54EA002752F9 /* SpatialObjectBrowser.swift */; };
 		B4BDFFDF2C1B47AA0011EBF7 /* SpatialObjectCatalog.swift in Sources */ = {isa = PBXBuildFile; fileRef = B4BDFFDE2C1B47AA0011EBF7 /* SpatialObjectCatalog.swift */; };
@@ -85,6 +88,9 @@
 		B40B897D2C1B924600F8FA47 /* Toy Rocket.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Toy Rocket.png"; sourceTree = "<group>"; };
 		B40B897F2C1B954100F8FA47 /* Toy Car.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Toy Car.png"; sourceTree = "<group>"; };
 		B40B89812C1B974000F8FA47 /* Toy Biplane.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Toy Biplane.png"; sourceTree = "<group>"; };
+		B40B89832C1CC28400F8FA47 /* SpatialObjectsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SpatialObjectsView.swift; sourceTree = "<group>"; };
+		B40B89872C1DF25100F8FA47 /* Entity+Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Entity+Extensions.swift"; sourceTree = "<group>"; };
+		B40B89902C1DF8A300F8FA47 /* Sunlight.skybox */ = {isa = PBXFileReference; lastKnownFileType = file.skybox; path = Sunlight.skybox; sourceTree = "<group>"; };
 		B44D986F2C1B49F7002752F9 /* DataStore.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DataStore.swift; sourceTree = "<group>"; };
 		B44D98712C1B54EA002752F9 /* SpatialObjectBrowser.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SpatialObjectBrowser.swift; sourceTree = "<group>"; };
 		B4BDFFDE2C1B47AA0011EBF7 /* SpatialObjectCatalog.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SpatialObjectCatalog.swift; sourceTree = "<group>"; };
@@ -157,6 +163,14 @@
 			path = "3D Models";
 			sourceTree = "<group>";
 		};
+		B40B89912C1DF8A300F8FA47 /* Resources */ = {
+			isa = PBXGroup;
+			children = (
+				B40B89902C1DF8A300F8FA47 /* Sunlight.skybox */,
+			);
+			path = Resources;
+			sourceTree = "<group>";
+		};
 		B4BDFFDA2C1B46FF0011EBF7 /* Browsers */ = {
 			isa = PBXGroup;
 			children = (
@@ -192,12 +206,15 @@
 			children = (
 				B4E1CB1F2C18E4C800A67AF3 /* Model */,
 				B4E1CB0C2C18DE3E00A67AF3 /* CatalogsApp.swift */,
-				B4E1CB0E2C18DE3E00A67AF3 /* ContentView.swift */,
 				B4E1CB1D2C18DFA100A67AF3 /* CatalogsViewModel.swift */,
+				B4E1CB0E2C18DE3E00A67AF3 /* ContentView.swift */,
+				B40B89832C1CC28400F8FA47 /* SpatialObjectsView.swift */,
 				B4BDFFDA2C1B46FF0011EBF7 /* Browsers */,
 				B4E1CB502C1A346D00A67AF3 /* Image+Extensions.swift */,
+				B40B89872C1DF25100F8FA47 /* Entity+Extensions.swift */,
 				B4E1CB4E2C19281200A67AF3 /* CompletionProgressViewStyle.swift */,
 				B4E1CB122C18DE3F00A67AF3 /* Assets.xcassets */,
+				B40B89912C1DF8A300F8FA47 /* Resources */,
 				B4E1CB172C18DE3F00A67AF3 /* Info.plist */,
 				B4E1CB142C18DE3F00A67AF3 /* Preview Content */,
 			);
@@ -341,6 +358,7 @@
 				B40B896A2C1B6AD000F8FA47 /* TV Set.usdz in Resources */,
 				B4E1CB412C18E83D00A67AF3 /* Romeo and Juliet.jpg in Resources */,
 				B4E1CB402C18E83D00A67AF3 /* Pride and Prejudice.jpg in Resources */,
+				B40B89932C1DF8A300F8FA47 /* Sunlight.skybox in Resources */,
 				B40B895D2C1B653000F8FA47 /* Toy Biplane.usdz in Resources */,
 				B4E1CB462C18E83D00A67AF3 /* The Time Machine.jpg in Resources */,
 				B40B89662C1B6A9000F8FA47 /* Nike Pegasus.usdz in Resources */,
@@ -369,10 +387,12 @@
 			files = (
 				B4E1CB0F2C18DE3E00A67AF3 /* ContentView.swift in Sources */,
 				B4E1CB512C1A346D00A67AF3 /* Image+Extensions.swift in Sources */,
+				B40B89842C1CC28400F8FA47 /* SpatialObjectsView.swift in Sources */,
 				B4E1CB4B2C19052C00A67AF3 /* BookBrowser.swift in Sources */,
 				B4E1CB0D2C18DE3E00A67AF3 /* CatalogsApp.swift in Sources */,
 				B4E1CB4F2C19281200A67AF3 /* CompletionProgressViewStyle.swift in Sources */,
 				B40B896E2C1B768800F8FA47 /* FileURLProtocol.swift in Sources */,
+				B40B89882C1DF25100F8FA47 /* Entity+Extensions.swift in Sources */,
 				B40B897C2C1B8F4F00F8FA47 /* SpatialObjectCell.swift in Sources */,
 				B4BDFFE12C1B47C90011EBF7 /* SpatialObject.swift in Sources */,
 				B4E1CB282C18E5C900A67AF3 /* Book.swift in Sources */,

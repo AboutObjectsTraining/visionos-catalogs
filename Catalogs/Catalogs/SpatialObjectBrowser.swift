@@ -7,21 +7,22 @@ import SwiftUI
 
 struct SpatialObjectBrowser: View {
     @Bindable var viewModel: CatalogsViewModel
-    @State private var selectedItemID: Set<UUID> = []
+    @Environment(\.openImmersiveSpace) var openImmersiveSpace
+    @Environment(\.dismissImmersiveSpace) var dismissImmersiveSpace
     
     var objectsList: some View {
-        List(selection: $selectedItemID) {
+        List {
             ForEach(viewModel.objectCatalog.objects) { object in
-                NavigationLink {
-                    Text("\(object.title)")
-                        .font(.headline)
-                } label: {
-                    SpatialObjectCell(object: object)
-                }
+                SpatialObjectCell(object: object)
+                    .onTapGesture(perform: { show(object: object) })
             }
-//            .onMove { offsets, targetOffset in
-//                viewModel.moveObjects(atOffsets: offsets, toOffset: targetOffset)
-//            }
+            .onMove { offsets, targetOffset in
+                viewModel.moveObjects(fromOffsets: offsets, toOffset: targetOffset)
+            }
+            // A bit of a hack to work around absence of a hover effect
+            // when the content isn't nested in a NavigationLink.
+            // See also: SpatialObjectCell
+            .listRowInsets(EdgeInsets(top: 0, leading: 0, bottom: 0, trailing: 0))
         }
         .padding(.bottom, 24)
     }
@@ -48,33 +49,49 @@ struct SpatialObjectBrowser: View {
         .toolbar {
             if viewModel.selectedTab == .objects {
                 ToolbarItemGroup(placement: .topBarTrailing) {
-                    // TODO: Implement Add 3D Model sheet.
+                    // TODO: Implement 'Add 3D Model' sheet.
                     EditButton()
                     Button(action: { }) { Image.plus }
                     Text("\(viewModel.objectsCount) items")
                 }
                 ToolbarItemGroup(placement: .bottomBar) {
-                    Button(action: { }) { Text("Show Selected 3D Models") }
+                    if viewModel.isShowingImmersiveSpace {
+                        Button(action: toggleImmersiveSpace) {
+                            Text("Dismiss Immersive Space")
+                        }
                         .buttonStyle(.bordered)
+                    }
                 }
             }
         }
-
-//        .ornament(attachmentAnchor: .scene(.bottom), contentAlignment: .top) {
-//            HStack {
-//                Picker("", selection: $viewModel.presentationStyle) {
-//                    Text("List")
-//                        .tag(PresentationStyle.list)
-//                    Text("Grid")
-//                        .tag(PresentationStyle.grid)
-//                }
-//                .background(.thinMaterial, in: Capsule())
-//            }
-//            .padding(.horizontal, 12)
-//            .frame(width: 240, height: 72)
-//            .pickerStyle(.segmented)
-//            .glassBackgroundEffect()
-//        }
         .onAppear { viewModel.loadObjects() }
+    }
+}
+
+// MARK: - Actions
+extension SpatialObjectBrowser {
+    
+    private func show(object: SpatialObject) {
+        viewModel.selectedObject = object
+        
+        if !viewModel.isShowingImmersiveSpace {
+            viewModel.isShowingImmersiveSpace = true
+            
+            Task {
+                await openImmersiveSpace(id: SpaceIDs.spatialObjects)
+            }
+        }
+    }
+    
+    @MainActor private func toggleImmersiveSpace() {
+        Task {
+            if viewModel.isShowingImmersiveSpace {
+                viewModel.isShowingImmersiveSpace = false
+                await dismissImmersiveSpace()
+            } else {
+                viewModel.isShowingImmersiveSpace = true
+                await openImmersiveSpace(id: SpaceIDs.spatialObjects)
+            }
+        }
     }
 }
