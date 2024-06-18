@@ -9,49 +9,57 @@ import RealityKit
 struct SpatialObjectsView: View {
     
     var viewModel: CatalogsViewModel
-    @State private var baseTransform: Transform?
-    @State private var baseMagnification: SIMD3<Float>?
+    @State private var currentTransform: Transform?
+    @State private var currentMagnification: SIMD3<Float>?
     private let startPosition: SIMD3<Float> = SIMD3(x: 0, y: 1.5, z: -1.5)
     
     var magnifyGesture: some Gesture {
         MagnifyGesture()
             .targetedToAnyEntity()
             .onChanged { value in
-                if baseMagnification == nil {
-                    baseMagnification = value.entity.scale
+                if currentMagnification == nil {
+                    currentMagnification = value.entity.scale
                 }
                 
                 let delta = Float(value.magnification - 1)
-                value.entity.scale = max(baseMagnification! + .init(repeating: delta), 0.2)
+                value.entity.scale = max(currentMagnification! + .init(repeating: delta), 0.2)
             }
-            .onEnded { value in
-                baseMagnification = nil
+            .onEnded { _ in
+                currentMagnification = nil
+            }
+    }
+    
+    var rotateGesture: some Gesture {
+        RotateGesture3D(constrainedToAxis: .y)
+            .targetedToAnyEntity()
+            .onChanged { value in
+                let entity = value.entity
+                if currentTransform == nil {
+                    currentTransform = entity.transform
+                }
+                
+                let transform = Transform(AffineTransform3D(rotation: value.rotation))
+                entity.transform.rotation = currentTransform!.rotation * transform.rotation
+            }
+            .onEnded { _ in
+                currentTransform = nil
             }
     }
     
     var dragGesture: some Gesture {
         DragGesture()
-            .simultaneously(with: RotateGesture3D(constrainedToAxis: .y))
             .targetedToAnyEntity()
             .onChanged { value in
                 let entity = value.entity
-                let rotation = value.second?.rotation
-                let translation = value.first?.translation3D
-                
-                if baseTransform == nil {
-                    baseTransform = entity.transform
+                if currentTransform == nil {
+                    currentTransform = entity.transform
                 }
                 
-                if rotation != nil {
-                    let rotationTransform = Transform(AffineTransform3D(rotation: rotation!))
-                    entity.transform.rotation = baseTransform!.rotation * rotationTransform.rotation
-                } else if translation != nil {
-                    let convertedTranslation = value.convert(translation!, from: .local, to: entity.parent!)
-                    entity.transform.translation = baseTransform!.translation + convertedTranslation
-                }
+                let translation = value.convert(value.translation3D, from: .local, to: entity.parent!)
+                entity.transform.translation = currentTransform!.translation + translation
             }
             .onEnded { _ in
-                baseTransform = nil
+                currentTransform = nil
             }
     }
     
@@ -65,20 +73,23 @@ struct SpatialObjectsView: View {
         } placeholder: {
             ProgressView()
         }
-        .gesture(magnifyGesture)
-        .simultaneousGesture(dragGesture)
+        .gesture(dragGesture)
+        .simultaneousGesture(rotateGesture)
+        .simultaneousGesture(magnifyGesture)
     }
     
     private func loadSelectedObject() -> Entity {
         guard let url = viewModel.selectedObject?.modelUrl,
-              let entity = try? Entity.load(contentsOf: url) else {
-            // let entity = try? Entity.loadModel(contentsOf: url) else {
+              let entity = try? Entity.load(contentsOf: url)
+        else {
+            print("Unable to load \(String(describing: viewModel.selectedObject?.modelUrl))")
             return Entity()
         }
         
         entity.position = startPosition
         configure(entity: entity)
         
+        print(entity)
         return entity
     }
     
@@ -103,7 +114,5 @@ struct SpatialObjectsView: View {
         }
         
         entity.scale = entity.scale(relativeTo: nil) * 3 // [0.03, 0.03, 0.03]
-        
-        // print(entity.components)
     }
 }
