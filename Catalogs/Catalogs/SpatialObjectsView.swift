@@ -10,16 +10,22 @@ struct SpatialObjectsView: View {
     
     var viewModel: CatalogsViewModel
     @State private var baseTransform: Transform?
-    @State private var magnification: Float = 1.0
+    @State private var baseMagnification: SIMD3<Float>?
     private let startPosition: SIMD3<Float> = SIMD3(x: 0, y: 1.5, z: -1.5)
     
     var magnifyGesture: some Gesture {
         MagnifyGesture()
             .targetedToAnyEntity()
             .onChanged { value in
-                let entity = value.entity
-                magnification = Float(value.magnification)
-                entity.scale = [magnification, magnification, magnification]
+                if baseMagnification == nil {
+                    baseMagnification = value.entity.scale
+                }
+                
+                let delta = Float(value.magnification - 1)
+                value.entity.scale = max(baseMagnification! + .init(repeating: delta), 0.2)
+            }
+            .onEnded { value in
+                baseMagnification = nil
             }
     }
     
@@ -38,8 +44,7 @@ struct SpatialObjectsView: View {
                 
                 if rotation != nil {
                     let rotationTransform = Transform(AffineTransform3D(rotation: rotation!))
-                    entity.transform.rotation = baseTransform!.rotation * rotationTransform.rotation //
-                        .inverse
+                    entity.transform.rotation = baseTransform!.rotation * rotationTransform.rotation
                 } else if translation != nil {
                     let convertedTranslation = value.convert(translation!, from: .local, to: entity.parent!)
                     entity.transform.translation = baseTransform!.translation + convertedTranslation
@@ -67,6 +72,7 @@ struct SpatialObjectsView: View {
     private func loadSelectedObject() -> Entity {
         guard let url = viewModel.selectedObject?.modelUrl,
               let entity = try? Entity.load(contentsOf: url) else {
+            // let entity = try? Entity.loadModel(contentsOf: url) else {
             return Entity()
         }
         
@@ -79,7 +85,6 @@ struct SpatialObjectsView: View {
     private func configure(entity: Entity) {
         entity.generateCollisionShapes(recursive: true)
         entity.components.set(InputTargetComponent(allowedInputTypes: .indirect))
-        entity.components.set(PhysicsBodyComponent())
         entity.components.set(HoverEffectComponent())
         
         entity.enumerateHierarchy { entity in
