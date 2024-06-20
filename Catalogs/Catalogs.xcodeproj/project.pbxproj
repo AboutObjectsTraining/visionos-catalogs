@@ -18,10 +18,6 @@
 		B40B896A2C1B6AD000F8FA47 /* TV Set.usdz in Resources */ = {isa = PBXBuildFile; fileRef = B40B89682C1B6AD000F8FA47 /* TV Set.usdz */; };
 		B40B896C2C1B6B2100F8FA47 /* Toy Robot.usdz in Resources */ = {isa = PBXBuildFile; fileRef = B40B896B2C1B6B2100F8FA47 /* Toy Robot.usdz */; };
 		B40B896E2C1B768800F8FA47 /* FileURLProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = B40B896D2C1B768800F8FA47 /* FileURLProtocol.swift */; };
-		B40B89732C1B805B00F8FA47 /* Toy Car.jpg in Resources */ = {isa = PBXBuildFile; fileRef = B40B896F2C1B805A00F8FA47 /* Toy Car.jpg */; };
-		B40B89742C1B805B00F8FA47 /* Toy Biplane.jpg in Resources */ = {isa = PBXBuildFile; fileRef = B40B89702C1B805B00F8FA47 /* Toy Biplane.jpg */; };
-		B40B89752C1B805B00F8FA47 /* Toy Rocket.jpg in Resources */ = {isa = PBXBuildFile; fileRef = B40B89712C1B805B00F8FA47 /* Toy Rocket.jpg */; };
-		B40B89762C1B805B00F8FA47 /* Toy Robot.jpg in Resources */ = {isa = PBXBuildFile; fileRef = B40B89722C1B805B00F8FA47 /* Toy Robot.jpg */; };
 		B40B89782C1B816D00F8FA47 /* BookDetail.swift in Sources */ = {isa = PBXBuildFile; fileRef = B40B89772C1B816D00F8FA47 /* BookDetail.swift */; };
 		B40B897A2C1B8EA100F8FA47 /* ThumbnailView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B40B89792C1B8EA100F8FA47 /* ThumbnailView.swift */; };
 		B40B897C2C1B8F4F00F8FA47 /* SpatialObjectCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = B40B897B2C1B8F4F00F8FA47 /* SpatialObjectCell.swift */; };
@@ -30,9 +26,10 @@
 		B40B89822C1B974000F8FA47 /* Toy Biplane.png in Resources */ = {isa = PBXBuildFile; fileRef = B40B89812C1B974000F8FA47 /* Toy Biplane.png */; };
 		B40B89842C1CC28400F8FA47 /* SpatialObjectsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B40B89832C1CC28400F8FA47 /* SpatialObjectsView.swift */; };
 		B40B89882C1DF25100F8FA47 /* Entity+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = B40B89872C1DF25100F8FA47 /* Entity+Extensions.swift */; };
-		B40B89932C1DF8A300F8FA47 /* Sunlight.skybox in Resources */ = {isa = PBXBuildFile; fileRef = B40B89902C1DF8A300F8FA47 /* Sunlight.skybox */; };
 		B44D98702C1B49F7002752F9 /* DataStore.swift in Sources */ = {isa = PBXBuildFile; fileRef = B44D986F2C1B49F7002752F9 /* DataStore.swift */; };
 		B44D98722C1B54EA002752F9 /* SpatialObjectBrowser.swift in Sources */ = {isa = PBXBuildFile; fileRef = B44D98712C1B54EA002752F9 /* SpatialObjectBrowser.swift */; };
+		B493E8FD2C234AF500E3448E /* Toy Robot.png in Resources */ = {isa = PBXBuildFile; fileRef = B493E8FC2C234AF500E3448E /* Toy Robot.png */; };
+		B4A842C62C2355B000B6C4B5 /* Sunlight.skybox in Resources */ = {isa = PBXBuildFile; fileRef = B4A842C42C2355B000B6C4B5 /* Sunlight.skybox */; };
 		B4BDFFDF2C1B47AA0011EBF7 /* SpatialObjectCatalog.swift in Sources */ = {isa = PBXBuildFile; fileRef = B4BDFFDE2C1B47AA0011EBF7 /* SpatialObjectCatalog.swift */; };
 		B4BDFFE12C1B47C90011EBF7 /* SpatialObject.swift in Sources */ = {isa = PBXBuildFile; fileRef = B4BDFFE02C1B47C90011EBF7 /* SpatialObject.swift */; };
 		B4E1CB0B2C18DE3E00A67AF3 /* RealityKitContent in Frameworks */ = {isa = PBXBuildFile; productRef = B4E1CB0A2C18DE3E00A67AF3 /* RealityKitContent */; };
@@ -78,10 +75,6 @@
 		B40B89682C1B6AD000F8FA47 /* TV Set.usdz */ = {isa = PBXFileReference; lastKnownFileType = file.usdz; path = "TV Set.usdz"; sourceTree = "<group>"; };
 		B40B896B2C1B6B2100F8FA47 /* Toy Robot.usdz */ = {isa = PBXFileReference; lastKnownFileType = file.usdz; path = "Toy Robot.usdz"; sourceTree = "<group>"; };
 		B40B896D2C1B768800F8FA47 /* FileURLProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FileURLProtocol.swift; sourceTree = "<group>"; };
-		B40B896F2C1B805A00F8FA47 /* Toy Car.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = "Toy Car.jpg"; sourceTree = "<group>"; };
-		B40B89702C1B805B00F8FA47 /* Toy Biplane.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = "Toy Biplane.jpg"; sourceTree = "<group>"; };
-		B40B89712C1B805B00F8FA47 /* Toy Rocket.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = "Toy Rocket.jpg"; sourceTree = "<group>"; };
-		B40B89722C1B805B00F8FA47 /* Toy Robot.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = "Toy Robot.jpg"; sourceTree = "<group>"; };
 		B40B89772C1B816D00F8FA47 /* BookDetail.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BookDetail.swift; sourceTree = "<group>"; };
 		B40B89792C1B8EA100F8FA47 /* ThumbnailView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ThumbnailView.swift; sourceTree = "<group>"; };
 		B40B897B2C1B8F4F00F8FA47 /* SpatialObjectCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SpatialObjectCell.swift; sourceTree = "<group>"; };
@@ -90,9 +83,11 @@
 		B40B89812C1B974000F8FA47 /* Toy Biplane.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Toy Biplane.png"; sourceTree = "<group>"; };
 		B40B89832C1CC28400F8FA47 /* SpatialObjectsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SpatialObjectsView.swift; sourceTree = "<group>"; };
 		B40B89872C1DF25100F8FA47 /* Entity+Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Entity+Extensions.swift"; sourceTree = "<group>"; };
-		B40B89902C1DF8A300F8FA47 /* Sunlight.skybox */ = {isa = PBXFileReference; lastKnownFileType = file.skybox; path = Sunlight.skybox; sourceTree = "<group>"; };
 		B44D986F2C1B49F7002752F9 /* DataStore.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DataStore.swift; sourceTree = "<group>"; };
 		B44D98712C1B54EA002752F9 /* SpatialObjectBrowser.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SpatialObjectBrowser.swift; sourceTree = "<group>"; };
+		B493E8FC2C234AF500E3448E /* Toy Robot.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Toy Robot.png"; sourceTree = "<group>"; };
+		B4A842BE2C2351C700B6C4B5 /* Sunlight.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Sunlight.png; sourceTree = "<group>"; };
+		B4A842C42C2355B000B6C4B5 /* Sunlight.skybox */ = {isa = PBXFileReference; lastKnownFileType = file.skybox; path = Sunlight.skybox; sourceTree = "<group>"; };
 		B4BDFFDE2C1B47AA0011EBF7 /* SpatialObjectCatalog.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SpatialObjectCatalog.swift; sourceTree = "<group>"; };
 		B4BDFFE02C1B47C90011EBF7 /* SpatialObject.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SpatialObject.swift; sourceTree = "<group>"; };
 		B4E1CB052C18DE3E00A67AF3 /* Catalogs.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Catalogs.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -143,13 +138,10 @@
 		B40B895A2C1B651900F8FA47 /* 3D Models */ = {
 			isa = PBXGroup;
 			children = (
+				B493E8FC2C234AF500E3448E /* Toy Robot.png */,
 				B40B89812C1B974000F8FA47 /* Toy Biplane.png */,
 				B40B897F2C1B954100F8FA47 /* Toy Car.png */,
 				B40B897D2C1B924600F8FA47 /* Toy Rocket.png */,
-				B40B89702C1B805B00F8FA47 /* Toy Biplane.jpg */,
-				B40B896F2C1B805A00F8FA47 /* Toy Car.jpg */,
-				B40B89722C1B805B00F8FA47 /* Toy Robot.jpg */,
-				B40B89712C1B805B00F8FA47 /* Toy Rocket.jpg */,
 				B40B895B2C1B652F00F8FA47 /* Toy Biplane.usdz */,
 				B40B895C2C1B653000F8FA47 /* Toy Car.usdz */,
 				B40B896B2C1B6B2100F8FA47 /* Toy Robot.usdz */,
@@ -163,10 +155,10 @@
 			path = "3D Models";
 			sourceTree = "<group>";
 		};
-		B40B89912C1DF8A300F8FA47 /* Resources */ = {
+		B4A842C52C2355B000B6C4B5 /* Resources */ = {
 			isa = PBXGroup;
 			children = (
-				B40B89902C1DF8A300F8FA47 /* Sunlight.skybox */,
+				B4A842C42C2355B000B6C4B5 /* Sunlight.skybox */,
 			);
 			path = Resources;
 			sourceTree = "<group>";
@@ -187,6 +179,7 @@
 		B4E1CAFC2C18DE3E00A67AF3 = {
 			isa = PBXGroup;
 			children = (
+				B4A842BE2C2351C700B6C4B5 /* Sunlight.png */,
 				B4E1CB072C18DE3E00A67AF3 /* Catalogs */,
 				B4E1CB082C18DE3E00A67AF3 /* Packages */,
 				B4E1CB062C18DE3E00A67AF3 /* Products */,
@@ -213,8 +206,8 @@
 				B4E1CB502C1A346D00A67AF3 /* Image+Extensions.swift */,
 				B40B89872C1DF25100F8FA47 /* Entity+Extensions.swift */,
 				B4E1CB4E2C19281200A67AF3 /* CompletionProgressViewStyle.swift */,
+				B4A842C52C2355B000B6C4B5 /* Resources */,
 				B4E1CB122C18DE3F00A67AF3 /* Assets.xcassets */,
-				B40B89912C1DF8A300F8FA47 /* Resources */,
 				B4E1CB172C18DE3F00A67AF3 /* Info.plist */,
 				B4E1CB142C18DE3F00A67AF3 /* Preview Content */,
 			);
@@ -340,15 +333,11 @@
 			files = (
 				B40B896C2C1B6B2100F8FA47 /* Toy Robot.usdz in Resources */,
 				B40B89822C1B974000F8FA47 /* Toy Biplane.png in Resources */,
-				B40B89752C1B805B00F8FA47 /* Toy Rocket.jpg in Resources */,
 				B40B89582C1B5F7200F8FA47 /* ObjectCatalog.json in Resources */,
-				B40B89732C1B805B00F8FA47 /* Toy Car.jpg in Resources */,
 				B4E1CB162C18DE3F00A67AF3 /* Preview Assets.xcassets in Resources */,
 				B40B897E2C1B924600F8FA47 /* Toy Rocket.png in Resources */,
 				B4E1CB432C18E83D00A67AF3 /* The Iliad.jpg in Resources */,
 				B4E1CB422C18E83D00A67AF3 /* The Brothers Karamozov.jpg in Resources */,
-				B40B89742C1B805B00F8FA47 /* Toy Biplane.jpg in Resources */,
-				B40B89762C1B805B00F8FA47 /* Toy Robot.jpg in Resources */,
 				B4E1CB492C18E83D00A67AF3 /* War of the Worlds.jpg in Resources */,
 				B40B89622C1B68B100F8FA47 /* Toy Drummer.usdz in Resources */,
 				B40B89692C1B6AD000F8FA47 /* Watering Can.usdz in Resources */,
@@ -358,17 +347,18 @@
 				B40B896A2C1B6AD000F8FA47 /* TV Set.usdz in Resources */,
 				B4E1CB412C18E83D00A67AF3 /* Romeo and Juliet.jpg in Resources */,
 				B4E1CB402C18E83D00A67AF3 /* Pride and Prejudice.jpg in Resources */,
-				B40B89932C1DF8A300F8FA47 /* Sunlight.skybox in Resources */,
 				B40B895D2C1B653000F8FA47 /* Toy Biplane.usdz in Resources */,
 				B4E1CB462C18E83D00A67AF3 /* The Time Machine.jpg in Resources */,
 				B40B89662C1B6A9000F8FA47 /* Nike Pegasus.usdz in Resources */,
 				B40B89802C1B954100F8FA47 /* Toy Car.png in Resources */,
 				B4E1CB3F2C18E83D00A67AF3 /* Much Ado About Nothing.jpg in Resources */,
+				B493E8FD2C234AF500E3448E /* Toy Robot.png in Resources */,
 				B40B89602C1B687E00F8FA47 /* Toy Rocket.usdz in Resources */,
 				B4E1CB242C18E58A00A67AF3 /* BookCatalog.json in Resources */,
 				B4E1CB452C18E83D00A67AF3 /* The Possessed.jpg in Resources */,
 				B4E1CB132C18DE3F00A67AF3 /* Assets.xcassets in Resources */,
 				B4E1CB482C18E83D00A67AF3 /* War and Peace.jpg in Resources */,
+				B4A842C62C2355B000B6C4B5 /* Sunlight.skybox in Resources */,
 				B4E1CB472C18E83D00A67AF3 /* Treasure Island.jpg in Resources */,
 				B4E1CB442C18E83D00A67AF3 /* The Odyssey.jpg in Resources */,
 				B4E1CB3C2C18E83D00A67AF3 /* Emma.jpg in Resources */,

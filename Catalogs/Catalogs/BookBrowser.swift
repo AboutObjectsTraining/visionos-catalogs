@@ -102,12 +102,19 @@ struct BookGrid: View {
         ScrollView {
             LazyVGrid(columns: Self.gridItems) {
                 ForEach(viewModel.bookCatalog.books) { book in
-                    AsyncImage(url: book.artworkUrl) { image in
-                        image
-                            .resizable()
-                            .scaledToFit()
-                    } placeholder: {
-                        ProgressView()
+                    
+                    AsyncImage(url: book.artworkUrl) { phase in
+                        if let image = phase.image {
+                            image
+                                .resizable()
+                                .scaledToFit()
+                        } else if phase.error != nil {
+                            ThumbnailView.Placeholder()
+                                .font(.largeTitle)
+                        }
+                        else {
+                            ProgressView()
+                        }
                     }
                 }
             }
