@@ -13,6 +13,10 @@ struct SpaceID {
     
     @State private var viewModel = CatalogsViewModel()
     
+    init() {
+        UITextField.appearance().clearButtonMode = .whileEditing
+    }
+    
     var body: some Scene {
         WindowGroup {
             ContentView(viewModel: viewModel)
