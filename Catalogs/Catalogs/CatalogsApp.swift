@@ -5,7 +5,7 @@
 
 import SwiftUI
 
-struct SpaceIDs {
+struct SpaceID {
     static let spatialObjects = "Spatial Objects"
 }
 
@@ -20,7 +20,7 @@ struct SpaceIDs {
         .defaultSize(width: 640, height: 960)
         .windowResizability(.contentSize)
         
-        ImmersiveSpace(id: SpaceIDs.spatialObjects) {
+        ImmersiveSpace(id: SpaceID.spatialObjects) {
             SpatialObjectsView(viewModel: viewModel)
         }
         .immersionStyle(selection: .constant(.mixed), in: .mixed)

@@ -78,7 +78,7 @@ extension SpatialObjectBrowser {
             viewModel.isShowingImmersiveSpace = true
             
             Task {
-                await openImmersiveSpace(id: SpaceIDs.spatialObjects)
+                await openImmersiveSpace(id: SpaceID.spatialObjects)
             }
         }
     }
@@ -90,7 +90,7 @@ extension SpatialObjectBrowser {
                 await dismissImmersiveSpace()
             } else {
                 viewModel.isShowingImmersiveSpace = true
-                await openImmersiveSpace(id: SpaceIDs.spatialObjects)
+                await openImmersiveSpace(id: SpaceID.spatialObjects)
             }
         }
     }
