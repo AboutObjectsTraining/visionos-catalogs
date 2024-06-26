@@ -7,6 +7,7 @@ import SwiftUI
 
 struct BookBrowser: View {
     @Bindable var viewModel: CatalogsViewModel
+    @AppStorage("shouldShowBooks") private var shouldShowBooks = true
     
     var bookList: some View {
         // TODO: Add selection support to List?
@@ -41,7 +42,7 @@ struct BookBrowser: View {
     
     var body: some View {
         VStack {
-            if viewModel.bookCatalog.hasBooks {
+            if viewModel.bookCatalog.hasBooks, shouldShowBooks {
                 if viewModel.presentationStyle == .list {
                     bookList
                 } else {
@@ -89,7 +90,9 @@ struct BookBrowser: View {
                 .pickerStyle(.segmented)
                 .glassBackgroundEffect()
         }
-        .onAppear { viewModel.loadBooks() }
+        .onAppear {
+            viewModel.loadBooks()
+        }
     }
 }
 

@@ -23,7 +23,7 @@ struct ContentView: View {
                         Label("Models", systemImage: "view.3d")
                     }
                     .tag(Tab.objects)
-                SettingsView()
+                SettingsBrowser()
                     .tabItem {
                         Label("Settings", systemImage: "gear")
                     }
@@ -37,14 +37,6 @@ struct ContentView: View {
             )
         }
         .frame(minWidth: 600, maxWidth: 1000, minHeight: 500)
-    }
-}
-
-
-struct SettingsView: View {
-    
-    var body: some View {
-        Text("Settings View")
     }
 }
 

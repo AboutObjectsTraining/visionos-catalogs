@@ -62,6 +62,7 @@
 		B4E1CB4D2C19057700A67AF3 /* BookCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = B4E1CB4C2C19057700A67AF3 /* BookCell.swift */; };
 		B4E1CB4F2C19281200A67AF3 /* CompletionProgressViewStyle.swift in Sources */ = {isa = PBXBuildFile; fileRef = B4E1CB4E2C19281200A67AF3 /* CompletionProgressViewStyle.swift */; };
 		B4E1CB512C1A346D00A67AF3 /* Image+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = B4E1CB502C1A346D00A67AF3 /* Image+Extensions.swift */; };
+		B4F1BC042C2CBADB003D1066 /* SettingsBrowser.swift in Sources */ = {isa = PBXBuildFile; fileRef = B4F1BC032C2CBADB003D1066 /* SettingsBrowser.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -123,6 +124,7 @@
 		B4E1CB4C2C19057700A67AF3 /* BookCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BookCell.swift; sourceTree = "<group>"; };
 		B4E1CB4E2C19281200A67AF3 /* CompletionProgressViewStyle.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CompletionProgressViewStyle.swift; sourceTree = "<group>"; };
 		B4E1CB502C1A346D00A67AF3 /* Image+Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Image+Extensions.swift"; sourceTree = "<group>"; };
+		B4F1BC032C2CBADB003D1066 /* SettingsBrowser.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsBrowser.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -189,6 +191,7 @@
 			children = (
 				B42496DA2C2B4E94001760DF /* Books */,
 				B42496DB2C2B4EA5001760DF /* SpatialObjects */,
+				B4F1BC022C2CBAAA003D1066 /* Settings */,
 				B40B89792C1B8EA100F8FA47 /* ThumbnailView.swift */,
 				B42496DC2C2B4ECA001760DF /* TitledCell.swift */,
 			);
@@ -287,6 +290,14 @@
 				B4E1CB382C18E83D00A67AF3 /* War of the Worlds.jpg */,
 			);
 			path = "Cover Images";
+			sourceTree = "<group>";
+		};
+		B4F1BC022C2CBAAA003D1066 /* Settings */ = {
+			isa = PBXGroup;
+			children = (
+				B4F1BC032C2CBADB003D1066 /* SettingsBrowser.swift */,
+			);
+			name = Settings;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -406,6 +417,7 @@
 				B4BDFFE12C1B47C90011EBF7 /* SpatialObject.swift in Sources */,
 				B4E1CB282C18E5C900A67AF3 /* Book.swift in Sources */,
 				B44D98702C1B49F7002752F9 /* DataStore.swift in Sources */,
+				B4F1BC042C2CBADB003D1066 /* SettingsBrowser.swift in Sources */,
 				B4E1CB4D2C19057700A67AF3 /* BookCell.swift in Sources */,
 				B42496DD2C2B4ECA001760DF /* TitledCell.swift in Sources */,
 				B44D98722C1B54EA002752F9 /* SpatialObjectBrowser.swift in Sources */,
