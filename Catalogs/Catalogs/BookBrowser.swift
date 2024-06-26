@@ -53,16 +53,16 @@ struct BookBrowser: View {
             }
         }
         .toolbar {
-            if viewModel.presentationStyle == .list {
                 ToolbarItemGroup(placement: .topBarTrailing) {
-                    // TODO: Implement Add Book sheet.
                     if viewModel.selectedTab == .books {
-                        EditButton()
-                        Button(action: { }) { Image.plus }
+                        if viewModel.presentationStyle == .list {
+                            EditButton()
+                        }
+                        Button(action: { viewModel.isAddingBook = true },
+                               label: { Image.plus })
                         Text("\(viewModel.booksCount) items")
                     }
                 }
-            }
             //  ToolbarItem(placement: .bottomOrnament) {
             //      Picker("", selection: $viewModel.bookCatalogStyle) {
             //          Text("List")
@@ -93,6 +93,13 @@ struct BookBrowser: View {
         .onAppear {
             viewModel.loadBooks()
         }
+        .sheet(
+            isPresented: $viewModel.isAddingBook,
+            content: {
+                AddBookView(addBook: viewModel.addBook(_:),
+                            cancel: viewModel.cancelAddBook)
+            }
+        )
     }
 }
 

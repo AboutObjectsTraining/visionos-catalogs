@@ -25,6 +25,8 @@ enum PresentationStyle {
     private let objectsDataStore: DataStore
     private(set) var objectCatalog: SpatialObjectCatalog
     
+    var isAddingBook = false
+    
     var presentationStyle = PresentationStyle.list
     var selectedTab = Tab.books
     
@@ -45,7 +47,6 @@ enum PresentationStyle {
         self.objectCatalog = SpatialObjectCatalog(title: "Empty", objects: [])
     }
 }
-
 
 // MARK: Actions
 extension CatalogsViewModel {
@@ -79,6 +80,16 @@ extension CatalogsViewModel {
     func moveObjects(fromOffsets offsets: IndexSet, toOffset offset: Int) {
         objectCatalog.move(fromOffsets: offsets, toOffset: offset)
         saveBooks()
+    }
+    
+    func addBook(_ book: Book) {
+        isAddingBook = false
+        bookCatalog.add(book: book)
+        saveBooks()
+    }
+    
+    func cancelAddBook() {
+        isAddingBook = false
     }
 
     @MainActor func loadObjects() {

@@ -47,16 +47,15 @@ import Observation
 // MARK: - Actions
 extension BookCatalog {
     
+    func add(book: Book) {
+        books.insert(book, at: 0)
+    }
+    
     func remove(atOffsets indexSet: IndexSet) {
         books.remove(atOffsets: indexSet)
-        save()
     }
     
     func move(fromOffsets offsets: IndexSet, toOffset offset: Int) {
         books.move(fromOffsets: offsets, toOffset: offset)
-    }
-    
-    func save() {
-        // TODO: implement me!
     }
 }

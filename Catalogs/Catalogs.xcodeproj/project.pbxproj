@@ -63,6 +63,7 @@
 		B4E1CB4F2C19281200A67AF3 /* CompletionProgressViewStyle.swift in Sources */ = {isa = PBXBuildFile; fileRef = B4E1CB4E2C19281200A67AF3 /* CompletionProgressViewStyle.swift */; };
 		B4E1CB512C1A346D00A67AF3 /* Image+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = B4E1CB502C1A346D00A67AF3 /* Image+Extensions.swift */; };
 		B4F1BC042C2CBADB003D1066 /* SettingsBrowser.swift in Sources */ = {isa = PBXBuildFile; fileRef = B4F1BC032C2CBADB003D1066 /* SettingsBrowser.swift */; };
+		B4F1BC062C2CC093003D1066 /* AddBookView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B4F1BC052C2CC093003D1066 /* AddBookView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -125,6 +126,7 @@
 		B4E1CB4E2C19281200A67AF3 /* CompletionProgressViewStyle.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CompletionProgressViewStyle.swift; sourceTree = "<group>"; };
 		B4E1CB502C1A346D00A67AF3 /* Image+Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Image+Extensions.swift"; sourceTree = "<group>"; };
 		B4F1BC032C2CBADB003D1066 /* SettingsBrowser.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsBrowser.swift; sourceTree = "<group>"; };
+		B4F1BC052C2CC093003D1066 /* AddBookView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddBookView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -165,6 +167,7 @@
 				B4E1CB4A2C19052C00A67AF3 /* BookBrowser.swift */,
 				B4E1CB4C2C19057700A67AF3 /* BookCell.swift */,
 				B40B89772C1B816D00F8FA47 /* BookDetail.swift */,
+				B4F1BC052C2CC093003D1066 /* AddBookView.swift */,
 			);
 			name = Books;
 			sourceTree = "<group>";
@@ -412,6 +415,7 @@
 				B4E1CB0D2C18DE3E00A67AF3 /* CatalogsApp.swift in Sources */,
 				B4E1CB4F2C19281200A67AF3 /* CompletionProgressViewStyle.swift in Sources */,
 				B40B896E2C1B768800F8FA47 /* FileURLProtocol.swift in Sources */,
+				B4F1BC062C2CC093003D1066 /* AddBookView.swift in Sources */,
 				B40B89882C1DF25100F8FA47 /* Entity+Extensions.swift in Sources */,
 				B40B897C2C1B8F4F00F8FA47 /* SpatialObjectCell.swift in Sources */,
 				B4BDFFE12C1B47C90011EBF7 /* SpatialObject.swift in Sources */,
