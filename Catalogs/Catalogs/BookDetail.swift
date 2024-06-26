@@ -7,7 +7,6 @@ import SwiftUI
 
 struct BookDetail: View {
     @Environment(\.dismiss) var dismiss
-    @Environment(\.colorScheme) var colorScheme
     @Environment(\.editMode) var editMode
     
     @Bindable var book: Book
@@ -56,10 +55,6 @@ struct BookDetail: View {
         }
     }
     
-    private var hasShadow: Bool {
-        colorScheme == .light && !isEditing
-    }
-
     private var imageSection: some View {
         Section {
             HStack {
