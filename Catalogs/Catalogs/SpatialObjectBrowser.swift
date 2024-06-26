@@ -55,12 +55,11 @@ struct SpatialObjectBrowser: View {
                     Text("\(viewModel.objectsCount) items")
                 }
                 ToolbarItemGroup(placement: .bottomBar) {
-                    if viewModel.isShowingImmersiveSpace {
-                        Button(action: toggleImmersiveSpace) {
-                            Text("Dismiss Immersive Space")
-                        }
-                        .buttonStyle(.bordered)
+                    Button(action: toggleImmersiveSpace) {
+                        Text("Dismiss Immersive Space")
                     }
+                    .buttonStyle(.bordered)
+                    .disabled(!viewModel.isShowingImmersiveSpace)
                 }
             }
         }
