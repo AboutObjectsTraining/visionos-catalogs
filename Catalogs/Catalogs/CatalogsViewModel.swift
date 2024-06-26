@@ -31,7 +31,7 @@ enum PresentationStyle {
     var booksCount: Int { bookCatalog.books.count }
     var objectsCount: Int { objectCatalog.objects.count }
     
-    var selectedObject: SpatialObject?    
+    var selectedObject: SpatialObject?
     var isShowingImmersiveSpace = false
     
     init(
@@ -62,16 +62,23 @@ extension CatalogsViewModel {
         }
     }
     
+    func saveBooks() {
+        try? booksDataStore.save(bookCatalog: bookCatalog)
+    }
+    
     func removeBooks(atOffsets offsets: IndexSet) {
         bookCatalog.remove(atOffsets: offsets)
+        saveBooks()
     }
     
     func moveBooks(atOffsets offsets: IndexSet, toOffset offset: Int) {
         bookCatalog.move(fromOffsets: offsets, toOffset: offset)
+        saveBooks()
     }
     
     func moveObjects(fromOffsets offsets: IndexSet, toOffset offset: Int) {
         objectCatalog.move(fromOffsets: offsets, toOffset: offset)
+        saveBooks()
     }
 
     @MainActor func loadObjects() {

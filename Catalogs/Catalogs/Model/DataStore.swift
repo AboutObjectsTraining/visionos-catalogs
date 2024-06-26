@@ -57,5 +57,19 @@ class DataStore {
         let (data, _) = try await URLSession.shared.data(from: storeFileUrl)
         return try JSONDecoder().decode(SpatialObjectCatalog.self, from: data)
     }
+    
+    func save(bookCatalog: BookCatalog) throws {
+        Task.detached {
+            guard let data = try? self.encoder.encode(bookCatalog) else {
+                throw StoreError.unableToEncode(message: "Unable to encode \(bookCatalog)")
+            }
+            
+            do {
+                try data.write(to: self.storeFileUrl)
+            } catch {
+                throw StoreError.unableToSave(message: "Unable to write to \(self.storeFileUrl), error was \(error)")
+            }
+        }
+    }
 }
 

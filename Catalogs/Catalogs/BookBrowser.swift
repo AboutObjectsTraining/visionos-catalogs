@@ -13,7 +13,7 @@ struct BookBrowser: View {
         List {
             ForEach(viewModel.bookCatalog.books) { book in
                 NavigationLink {
-                    BookDetail(book: book)
+                    BookDetail(book: book, viewModel: viewModel)
                 } label: {
                     BookCell(book: book)
                 }
@@ -52,12 +52,14 @@ struct BookBrowser: View {
             }
         }
         .toolbar {
-            ToolbarItemGroup(placement: .topBarTrailing) {
-                // TODO: Implement Add Book sheet.
-                if viewModel.selectedTab == .books {
-                    EditButton()
-                    Button(action: { }) { Image.plus }
-                    Text("\(viewModel.booksCount) items")
+            if viewModel.presentationStyle == .list {
+                ToolbarItemGroup(placement: .topBarTrailing) {
+                    // TODO: Implement Add Book sheet.
+                    if viewModel.selectedTab == .books {
+                        EditButton()
+                        Button(action: { }) { Image.plus }
+                        Text("\(viewModel.booksCount) items")
+                    }
                 }
             }
             //  ToolbarItem(placement: .bottomOrnament) {
@@ -73,19 +75,19 @@ struct BookBrowser: View {
             //  }
         }
         .ornament(attachmentAnchor: .scene(.bottom), contentAlignment: .top) {
-            HStack {
-                Picker("", selection: $viewModel.presentationStyle) {
-                    Text("List")
-                        .tag(PresentationStyle.list)
-                    Text("Grid")
-                        .tag(PresentationStyle.grid)
+                HStack {
+                    Picker("", selection: $viewModel.presentationStyle) {
+                        Text("List")
+                            .tag(PresentationStyle.list)
+                        Text("Grid")
+                            .tag(PresentationStyle.grid)
+                    }
+                    .background(.thinMaterial, in: Capsule())
                 }
-                .background(.thinMaterial, in: Capsule())
-            }
-            .padding(.horizontal, 12)
-            .frame(width: 240, height: 72)
-            .pickerStyle(.segmented)
-            .glassBackgroundEffect()
+                .padding(.horizontal, 12)
+                .frame(width: 240, height: 72)
+                .pickerStyle(.segmented)
+                .glassBackgroundEffect()
         }
         .onAppear { viewModel.loadBooks() }
     }
@@ -103,37 +105,33 @@ struct BookGrid: View {
             LazyVGrid(columns: Self.gridItems) {
                 ForEach(viewModel.bookCatalog.books) { book in
                     ZStack {
-                        AsyncImage(url: book.artworkUrl) { phase in
-                            if let image = phase.image {
-                                image
-                                    .resizable()
-                                    .scaledToFit()
-                            } else if phase.error != nil {
-                                ThumbnailView.Placeholder()
-                                    .font(.largeTitle)
-                            } else {
-                                ProgressView()
-                            }
-                        }
                         NavigationLink {
-                            BookDetail(book: book)
-                        } label: { }
+                            BookDetail(book: book, viewModel: viewModel)
+                        } label: {
+                            coverImage(book: book)
+                        }
+                        // super unintuitive setting here 🤦🏻‍♂️
+                        .buttonStyle(PlainButtonStyle())
                     }
                 }
             }
         }
         .padding(.horizontal, 24)
     }
+    
+    func coverImage(book: Book) -> some View {
+        
+        AsyncImage(url: book.artworkUrl) { phase in
+            if let image = phase.image {
+                image
+                    .resizable()
+                    .scaledToFit()
+            } else if phase.error != nil {
+                ThumbnailView.Placeholder()
+                    .font(.largeTitle)
+            } else {
+                ProgressView()
+            }
+        }
+    }
 }
-
-//struct BookBrowser_Previews: PreviewProvider {
-//    static var viewModel: CatalogsViewModel = {
-//        let vm = CatalogsViewModel()
-//        vm.bookCatalog.books = []
-//        return vm
-//    }()
-//    
-//    static var previews: some View {
-//        BookBrowser(viewModel: viewModel)
-//    }
-//}

@@ -6,10 +6,12 @@
 import SwiftUI
 
 struct BookDetail: View {
-    @Environment(\.colorScheme) var colorScheme: ColorScheme
+    @Environment(\.dismiss) var dismiss
+    @Environment(\.colorScheme) var colorScheme
     @Environment(\.editMode) var editMode
     
     @Bindable var book: Book
+    @State var viewModel: CatalogsViewModel
     @FocusState private var isFocused: Bool
     
     private var isEditing: Bool { editMode?.wrappedValue.isEditing ?? false }
@@ -96,6 +98,10 @@ struct BookDetail: View {
         }
         .onChange(of: isEditing) {
             isFocused = isEditing
+            if !isEditing {
+                viewModel.saveBooks()
+                dismiss()
+            }
         }
     }
 }
@@ -106,7 +112,7 @@ struct BookDetail: View {
         let book = Book(title: "My Book",
                         year: "1999", 
                         author: "Fred Smith")
-        BookDetail(book: book)
+        BookDetail(book: book, viewModel: CatalogsViewModel())
     }
 }
 #endif
