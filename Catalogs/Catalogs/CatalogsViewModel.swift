@@ -51,7 +51,7 @@ enum PresentationStyle {
 // MARK: Actions
 extension CatalogsViewModel {
     
-    @MainActor func loadBooks() {
+    func loadBooks() {
         guard bookCatalog.books.isEmpty else { return }
         
         Task {
@@ -92,7 +92,7 @@ extension CatalogsViewModel {
         isAddingBook = false
     }
 
-    @MainActor func loadObjects() {
+    func loadObjects() {
         guard objectCatalog.objects.isEmpty else { return }
         
         Task {
