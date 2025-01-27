@@ -13,10 +13,6 @@ struct SpaceID {
     
     @State private var viewModel = CatalogsViewModel()
     
-    init() {
-        UITextField.appearance().clearButtonMode = .whileEditing
-    }
-    
     var body: some Scene {
         WindowGroup {
             ContentView(viewModel: viewModel)
@@ -29,5 +25,9 @@ struct SpaceID {
             SpatialObjectsView(viewModel: viewModel)
         }
         .immersionStyle(selection: .constant(.mixed), in: .mixed)
+    }
+    
+    init() {
+        UITextField.appearance().clearButtonMode = .whileEditing
     }
 }
