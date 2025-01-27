@@ -48,7 +48,7 @@ struct SpatialObjectsView: View {
     }
     
     private func configure(entity: Entity) {
-        
+         
         // Hover effect
         // entity.components.set(HoverEffectComponent())
         
@@ -69,8 +69,8 @@ struct SpatialObjectsView: View {
             let component = ImageBasedLightComponent(source: .single(resource),
                                                      intensityExponent: 9)
             
-            await entity.components.set(component)
-            await entity.components.set(ImageBasedLightReceiverComponent(imageBasedLight: entity))
+            entity.components.set(component)
+            entity.components.set(ImageBasedLightReceiverComponent(imageBasedLight: entity))
         }
         
         // Custom components
