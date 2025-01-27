@@ -55,12 +55,15 @@ struct BookBrowser: View {
         .toolbar {
                 ToolbarItemGroup(placement: .topBarTrailing) {
                     if viewModel.selectedTab == .books {
+                        Text("\(viewModel.booksCount) items")
+                            .font(.headline)
+                            .fixedSize()
+                        Spacer()
                         if viewModel.presentationStyle == .list {
                             EditButton()
                         }
                         Button(action: { viewModel.isAddingBook = true },
                                label: { Image.plus })
-                        Text("\(viewModel.booksCount) items")
                     }
                 }
             //  ToolbarItem(placement: .bottomOrnament) {
