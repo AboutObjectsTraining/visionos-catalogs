@@ -12,7 +12,7 @@ struct BookBrowser: View {
     var bookList: some View {
         // TODO: Add selection support to List?
         List {
-            ForEach(viewModel.bookCatalog.books) { book in
+            ForEach(viewModel.books) { book in
                 NavigationLink {
                     BookDetail(book: book, viewModel: viewModel)
                 } label: {
@@ -42,7 +42,7 @@ struct BookBrowser: View {
     
     var body: some View {
         VStack {
-            if viewModel.bookCatalog.hasBooks, shouldShowBooks {
+            if viewModel.hasBooks, shouldShowBooks {
                 if viewModel.presentationStyle == .list {
                     bookList
                 } else {
@@ -116,7 +116,7 @@ struct BookGrid: View {
     var body: some View {
         ScrollView {
             LazyVGrid(columns: Self.gridItems) {
-                ForEach(viewModel.bookCatalog.books) { book in
+                ForEach(viewModel.books) { book in
                     ZStack {
                         NavigationLink {
                             BookDetail(book: book, viewModel: viewModel)
@@ -147,4 +147,9 @@ struct BookGrid: View {
             }
         }
     }
+}
+
+#Preview("List", windowStyle: .automatic, traits: .fixedLayout(width: 600, height: 800)) {
+    let viewModel = CatalogsViewModel()
+    ContentView(viewModel: viewModel)
 }

@@ -5,18 +5,10 @@
 
 import Foundation
 
-enum StoreError: Error {
-    case unableToEncode(message: String)
-    case unableToDecode(message: String)
-    case unableToSave(message: String)
-}
-
 class DataStore {
     let storeName: String
     let storeType = "json"
     
-    let codableType = BookCatalog.self
-
     let decoder = JSONDecoder()
     let encoder: JSONEncoder = {
         let encoder = JSONEncoder()
@@ -25,37 +17,51 @@ class DataStore {
     }()
 
     var bundle: Bundle
-    
-    var documentsDirectoryUrl: URL {
-        FileManager.default.urls(for: .documentDirectory, in: .userDomainMask).first!
-    }
-    var storeFileUrl: URL {
-        documentsDirectoryUrl.appendingPathComponent(storeName).appendingPathExtension(storeType)
-    }
-    var templateStoreFileUrl: URL {
-        bundle.url(forResource: storeName, withExtension: storeType)!
-    }
-    
+        
     init(storeName: String, bundle: Bundle = Bundle.main) {
         self.storeName = storeName
         self.bundle = bundle
-        copyStoreFileIfNecessary()
+        copyDemoFileIfNecessary()
+    }
+}
+
+// MARK: - Filesystem Access
+extension DataStore {
+    
+    var demoFileURL: URL {
+        Bundle.main.url(forResource: storeName, withExtension: storeType)!
     }
     
-    func copyStoreFileIfNecessary() {
-        if !FileManager.default.fileExists(atPath: storeFileUrl.path) {
-            try! FileManager.default.copyItem(at: templateStoreFileUrl, to: storeFileUrl)
+    var storeFileURL: URL {
+        URL.documentsDirectory
+            .appendingPathComponent(storeName)
+            .appendingPathExtension(storeType)
+    }
+    
+    private func copyDemoFileIfNecessary() {
+        if !FileManager.default.fileExists(atPath: storeFileURL.path) {
+            try? FileManager.default.copyItem(at: demoFileURL, to: storeFileURL)
         }
     }
+}
+
+// MARK: - Persistence Operations
+extension DataStore {
     
-    @MainActor func fetchBookCatalog() async throws -> BookCatalog {
-        let (data, _) = try await URLSession.shared.data(from: storeFileUrl)
-        return try JSONDecoder().decode(BookCatalog.self, from: data)
+    enum StoreError: Error {
+        case unableToEncode(message: String)
+        case unableToDecode(message: String)
+        case unableToSave(message: String)
+    }
+
+    func fetchBookCatalog() async throws -> BookCatalog {
+        let (data, _) = try await URLSession.shared.data(from: storeFileURL)
+        return try decoder.decode(BookCatalog.self, from: data)
     }
     
-    @MainActor func fetchSpatialObjectCatalog() async throws -> SpatialObjectCatalog {
-        let (data, _) = try await URLSession.shared.data(from: storeFileUrl)
-        return try JSONDecoder().decode(SpatialObjectCatalog.self, from: data)
+    func fetchSpatialObjectCatalog() async throws -> SpatialObjectCatalog {
+        let (data, _) = try await URLSession.shared.data(from: storeFileURL)
+        return try decoder.decode(SpatialObjectCatalog.self, from: data)
     }
     
     func save(bookCatalog: BookCatalog) throws {
@@ -65,11 +71,10 @@ class DataStore {
             }
             
             do {
-                try data.write(to: self.storeFileUrl)
+                try data.write(to: self.demoFileURL)
             } catch {
-                throw StoreError.unableToSave(message: "Unable to write to \(self.storeFileUrl), error was \(error)")
+                throw StoreError.unableToSave(message: "Unable to write to \(self.demoFileURL), error was \(error)")
             }
         }
     }
 }
-

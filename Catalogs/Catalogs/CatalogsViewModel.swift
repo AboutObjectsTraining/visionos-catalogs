@@ -25,15 +25,12 @@ enum PresentationStyle {
     private let objectsDataStore: DataStore
     private(set) var objectCatalog: SpatialObjectCatalog
     
-    var isAddingBook = false
-    
     var presentationStyle = PresentationStyle.list
+    
     var selectedTab = Tab.books
-    
-    var booksCount: Int { bookCatalog.books.count }
-    var objectsCount: Int { objectCatalog.objects.count }
-    
     var selectedObject: SpatialObject?
+    
+    var isAddingBook = false
     var isShowingImmersiveSpace = false
     
     init(
@@ -47,6 +44,35 @@ enum PresentationStyle {
         self.objectCatalog = SpatialObjectCatalog(title: "Empty", objects: [])
     }
 }
+
+// MARK: Convenience Accessors
+extension CatalogsViewModel {
+    
+    var books: [Book] {
+        bookCatalog.books
+    }
+    
+    var objects: [SpatialObject] {
+        objectCatalog.objects
+    }
+    
+    var booksCount: Int {
+        books.count
+    }
+    
+    var objectsCount: Int {
+        objects.count
+    }
+    
+    var hasBooks: Bool {
+        bookCatalog.hasBooks
+    }
+    
+    var hasObjects: Bool {
+        objectCatalog.hasObjects
+    }
+}
+
 
 // MARK: Actions
 extension CatalogsViewModel {
