@@ -6,58 +6,28 @@ import SwiftUI
 struct TitledCell: View {
     let title: String
     @Binding var value: String
+    
     @Environment(\.editMode) var editMode
-
+    
     var isEditing: Bool {
         editMode?.wrappedValue.isEditing ?? false
     }
-        
-    var body: some View {
-        Group {
-            if isEditing {
-                EditableField(title: title, value: $value)
-            } else {
-                StaticField(title: title, value: value)
-            }
-        }
-        .font(.headline)
-    }
     
-    struct TitleView: View {
-        let title: String
-        
-        var body: some View {
+    var body: some View {
+        VStack(alignment: .leading, spacing: 3) {
             Text("\(title)")
                 .font(.caption)
                 .foregroundStyle(.secondary)
-        }
-    }
-    
-    struct StaticField: View {
-        let title: String
-        let value: String
-        
-        var body: some View {
-            VStack(alignment: .leading, spacing: 3) {
-                TitleView(title: title)
-                    .padding(.bottom, 0)
-                Text("\(value)")
+                .padding(.bottom, isEditing ? -4 : 0)
+                .padding(.top, 4)
+            
+            if isEditing {
+                TextField(text: $value) { }
+            } else {
+                Text(value)
             }
         }
-    }
-    
-    struct EditableField: View {
-        let title: String
-        @Binding var value: String
-        
-        var body: some View {
-            VStack(alignment: .leading, spacing: 3) {
-                TitleView(title: title)
-                    .padding(.bottom, -4)
-                    .padding(.top, 4)
-                TextField(title, text: $value)
-            }
-        }
+        .font(.headline)
     }
 }
 
