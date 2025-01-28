@@ -71,7 +71,7 @@ extension DataStore {
             }
             
             do {
-                try data.write(to: self.demoFileURL)
+                try data.write(to: self.storeFileURL)
             } catch {
                 throw StoreError.unableToSave(message: "Unable to write to \(self.demoFileURL), error was \(error)")
             }
