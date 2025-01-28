@@ -14,7 +14,9 @@ struct SpatialObjectBrowser: View {
         List {
             ForEach(viewModel.objectCatalog.objects) { object in
                 SpatialObjectCell(object: object)
-                    .onTapGesture { show(object: object) }
+                    .onTapGesture {
+                        show(object: object)
+                    }
             }
             .onMove { offsets, targetOffset in
                 viewModel.moveObjects(fromOffsets: offsets, toOffset: targetOffset)
@@ -47,7 +49,7 @@ struct SpatialObjectBrowser: View {
                     Button(action: { }) { Image.plus }
                 }
                 ToolbarItemGroup(placement: .bottomBar) {
-                    Button(action: toggleImmersiveSpace) {
+                    Button(action: dismiss) {
                         Text("Dismiss Immersive Space")
                     }
                     .buttonStyle(.bordered)
@@ -62,26 +64,26 @@ struct SpatialObjectBrowser: View {
 extension SpatialObjectBrowser {
     
     private func show(object: SpatialObject) {
-        viewModel.selectedObject = object
-        
         if !viewModel.isShowingImmersiveSpace {
-            viewModel.isShowingImmersiveSpace = true
-            
             Task {
                 await openImmersiveSpace(id: SpaceID.spatialObjects)
             }
+            
+            viewModel.isShowingImmersiveSpace = true
         }
+        
+        viewModel.selectedObject = object
     }
     
-    @MainActor private func toggleImmersiveSpace() {
-        Task {
-            if viewModel.isShowingImmersiveSpace {
-                viewModel.isShowingImmersiveSpace = false
+    @MainActor private func dismiss() {
+        if viewModel.isShowingImmersiveSpace {
+            Task {
                 await dismissImmersiveSpace()
-            } else {
-                viewModel.isShowingImmersiveSpace = true
-                await openImmersiveSpace(id: SpaceID.spatialObjects)
             }
+            
+            viewModel.isShowingImmersiveSpace = false
         }
+        
+        viewModel.selectedObject = nil
     }
 }
