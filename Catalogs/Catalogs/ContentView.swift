@@ -18,11 +18,21 @@ struct ContentView: View {
                         Label("Books", systemImage: "books.vertical.fill")
                     }
                     .tag(Tab.books)
+                    .onAppear {
+                        if !viewModel.hasBooks {
+                            viewModel.loadBooks()
+                        }
+                    }
                 SpatialObjectBrowser(viewModel: viewModel)
                     .tabItem {
                         Label("Models", systemImage: "view.3d")
                     }
                     .tag(Tab.objects)
+                    .onAppear {
+                        if !viewModel.hasObjects {
+                            viewModel.loadObjects()
+                        }
+                    }
                 SettingsBrowser()
                     .tabItem {
                         Label("Settings", systemImage: "gear")

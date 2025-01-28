@@ -66,7 +66,6 @@ struct SpatialObjectBrowser: View {
                 }
             }
         }
-        .onAppear { viewModel.loadObjects() }
     }
 }
 

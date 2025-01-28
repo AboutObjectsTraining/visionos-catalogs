@@ -93,9 +93,6 @@ struct BookBrowser: View {
                 .pickerStyle(.segmented)
                 .glassBackgroundEffect()
         }
-        .onAppear {
-            viewModel.loadBooks()
-        }
         .sheet(
             isPresented: $viewModel.isAddingBook,
             content: {
