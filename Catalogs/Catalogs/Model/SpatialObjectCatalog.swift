@@ -4,40 +4,27 @@
 //  
 
 import Foundation
-import Observation
 
-@Observable class SpatialObjectCatalog: Codable, Identifiable {
+@Observable final class SpatialObjectCatalog: Codable, Identifiable {
     
     enum CodingKeys: String, CodingKey {
         case id
-        case title
-        case objects
+        case _title = "title"
+        case _objects = "objects"
     }
     
-    var id = UUID()
+    let id: UUID
     var title: String
     var objects: [SpatialObject]
     
     var hasObjects: Bool { !objects.isEmpty }
     
-    init(title: String, objects: [SpatialObject]) {
+    init(id: UUID = UUID(), title: String, objects: [SpatialObject]) {
+        self.id = id
         self.title = title
         self.objects = objects
     }
     
-    required init(from decoder: any Decoder) throws {
-        let container = try decoder.container(keyedBy: CodingKeys.self)
-        id = try container.decode(UUID.self, forKey: .id)
-        title = try container.decode(String.self, forKey: .title)
-        objects = try container.decode([SpatialObject].self, forKey: .objects)
-    }
-    
-    func encode(to encoder: Encoder) throws {
-        var container = encoder.container(keyedBy: CodingKeys.self)
-        try container.encode(id, forKey: .id)
-        try container.encode(title, forKey: .title)
-        try container.encode(objects, forKey: .objects)
-    }
 }
 
 // MARK: - Actions

@@ -5,11 +5,11 @@
 
 import Foundation
 
-protocol FileURLProtocol {
+protocol FileURLs {
     var title: String { get }
 }
 
-extension FileURLProtocol {
+extension FileURLs {
     
     var artworkUrl: URL {
         let title = title.isEmpty ? "unknown" : title

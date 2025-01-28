@@ -2,20 +2,21 @@
 // See LICENSE.txt for this project's licensing information.
 
 import Foundation
-import Observation
 
-@Observable class BookCatalog: Codable, Identifiable, CustomStringConvertible
+@Observable final class BookCatalog: Codable, Identifiable, CustomStringConvertible
 {
-    // NOTE: @Observable property macros expand to store values
-    // in underscore-prefixed properties, hence the CodingKeys and
-    // Codable API implementations.
+    // NOTE: @Observable property macros expand to insert @ObservationTracked
+    // property macros for each read-write property. These in turn add underscore-prefixed
+    // properties to store the actual values, as well as code to notify the ObservationRegistrar
+    // of value changes.
+    //
     enum CodingKeys: String, CodingKey {
         case id
-        case title
-        case books
+        case _title = "title"
+        case _books = "books"
     }
     
-    var id = UUID()
+    let id: UUID
     var title: String
     var books: [Book]
     
@@ -24,23 +25,10 @@ import Observation
         "\n\(BookCatalog.self):\n\ttitle: \(title)\n\tbooks: \(books)\n"
     }
     
-    init(title: String, books: [Book]) {
+    init(id: UUID = UUID(), title: String, books: [Book]) {
+        self.id = id
         self.title = title
         self.books = books
-    }
-
-    required init(from decoder: any Decoder) throws {
-        let container = try decoder.container(keyedBy: CodingKeys.self)
-        id = try container.decode(UUID.self, forKey: .id)
-        title = try container.decode(String.self, forKey: .title)
-        books = try container.decode([Book].self, forKey: .books)
-    }
-    
-    func encode(to encoder: Encoder) throws {
-        var container = encoder.container(keyedBy: CodingKeys.self)
-        try container.encode(id, forKey: .id)
-        try container.encode(title, forKey: .title)
-        try container.encode(books, forKey: .books)
     }
 }
 
