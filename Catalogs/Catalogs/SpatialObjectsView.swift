@@ -191,3 +191,8 @@ extension Entity {
         components[MyAnimationComponent.self] = MyAnimationComponent(isAnimating: !isAnimating)
     }
 }
+
+#Preview("List", windowStyle: .automatic, traits: .fixedLayout(width: 600, height: 800)) {
+    let viewModel = CatalogsViewModel()
+    ContentView(viewModel: viewModel)
+}
