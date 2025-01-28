@@ -14,7 +14,7 @@ struct SpatialObjectBrowser: View {
         List {
             ForEach(viewModel.objectCatalog.objects) { object in
                 SpatialObjectCell(object: object)
-                    .onTapGesture(perform: { show(object: object) })
+                    .onTapGesture { show(object: object) }
             }
             .onMove { offsets, targetOffset in
                 viewModel.moveObjects(fromOffsets: offsets, toOffset: targetOffset)
@@ -27,23 +27,12 @@ struct SpatialObjectBrowser: View {
         .padding(.bottom, 24)
     }
     
-    var noObjectsMessage: some View {
-        VStack {
-            Spacer()
-            Text("No 3D Models")
-                .font(.headline)
-            Text("Tap the + button to add a 3D model to the catalog.")
-                .font(.subheadline)
-            Spacer()
-        }
-    }
-    
     var body: some View {
-        VStack {
-            if viewModel.objectCatalog.hasObjects {
-                objectsList
+        Group {
+            if !viewModel.objectCatalog.hasObjects {
+                EmptyContentMessage(itemName: "3D model")
             } else {
-                noObjectsMessage
+                objectsList
             }
         }
         .toolbar {

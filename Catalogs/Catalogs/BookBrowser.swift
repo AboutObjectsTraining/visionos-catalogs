@@ -29,43 +29,31 @@ struct BookBrowser: View {
         .padding(.bottom, 24)
     }
     
-    var noBooksMessage: some View {
-        VStack {
-            Spacer()
-            Text("No Books")
-                .font(.headline)
-            Text("Tap the + button to add a book to the catalog.")
-                .font(.subheadline)
-            Spacer()
-        }
-    }
-    
     var body: some View {
-        VStack {
-            if viewModel.hasBooks, shouldShowBooks {
+        Group {
+            if !(viewModel.hasBooks && shouldShowBooks) {
+                EmptyContentMessage(itemName: "book")
+            } else {
                 if viewModel.presentationStyle == .list {
                     bookList
                 } else {
                     BookGrid(viewModel: viewModel)
                 }
-            } else {
-                noBooksMessage
             }
         }
         .toolbar {
-                ToolbarItemGroup(placement: .topBarTrailing) {
-                    if viewModel.selectedTab == .books {
-                        Text("\(viewModel.booksCount) items")
-                            .font(.headline)
-                            .fixedSize()
-                        Spacer()
-                        if viewModel.presentationStyle == .list {
-                            EditButton()
-                        }
-                        Button(action: { viewModel.isAddingBook = true },
-                               label: { Image.plus })
-                    }
+            if viewModel.selectedTab == .books {
+                Text("\(viewModel.booksCount) items")
+                    .font(.headline)
+                    .fixedSize()
+                Spacer()
+                if viewModel.presentationStyle == .list {
+                    EditButton()
                 }
+                Button(action: { viewModel.isAddingBook = true },
+                       label: { Image.plus })
+            }
+
             //  ToolbarItem(placement: .bottomOrnament) {
             //      Picker("", selection: $viewModel.bookCatalogStyle) {
             //          Text("List")

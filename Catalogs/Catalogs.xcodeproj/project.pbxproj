@@ -33,6 +33,7 @@
 		B4A842C62C2355B000B6C4B5 /* Sunlight.skybox in Resources */ = {isa = PBXBuildFile; fileRef = B4A842C42C2355B000B6C4B5 /* Sunlight.skybox */; };
 		B4BDFFDF2C1B47AA0011EBF7 /* SpatialObjectCatalog.swift in Sources */ = {isa = PBXBuildFile; fileRef = B4BDFFDE2C1B47AA0011EBF7 /* SpatialObjectCatalog.swift */; };
 		B4BDFFE12C1B47C90011EBF7 /* SpatialObject.swift in Sources */ = {isa = PBXBuildFile; fileRef = B4BDFFE02C1B47C90011EBF7 /* SpatialObject.swift */; };
+		B4DE54292D499626009B37B8 /* EmptyContentMessage.swift in Sources */ = {isa = PBXBuildFile; fileRef = B4DE54282D499626009B37B8 /* EmptyContentMessage.swift */; };
 		B4E1CB0B2C18DE3E00A67AF3 /* RealityKitContent in Frameworks */ = {isa = PBXBuildFile; productRef = B4E1CB0A2C18DE3E00A67AF3 /* RealityKitContent */; };
 		B4E1CB0D2C18DE3E00A67AF3 /* CatalogsApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = B4E1CB0C2C18DE3E00A67AF3 /* CatalogsApp.swift */; };
 		B4E1CB0F2C18DE3E00A67AF3 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B4E1CB0E2C18DE3E00A67AF3 /* ContentView.swift */; };
@@ -94,6 +95,7 @@
 		B4A842C42C2355B000B6C4B5 /* Sunlight.skybox */ = {isa = PBXFileReference; lastKnownFileType = file.skybox; path = Sunlight.skybox; sourceTree = "<group>"; };
 		B4BDFFDE2C1B47AA0011EBF7 /* SpatialObjectCatalog.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SpatialObjectCatalog.swift; sourceTree = "<group>"; };
 		B4BDFFE02C1B47C90011EBF7 /* SpatialObject.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SpatialObject.swift; sourceTree = "<group>"; };
+		B4DE54282D499626009B37B8 /* EmptyContentMessage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EmptyContentMessage.swift; sourceTree = "<group>"; };
 		B4E1CB052C18DE3E00A67AF3 /* Catalogs.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Catalogs.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		B4E1CB092C18DE3E00A67AF3 /* RealityKitContent */ = {isa = PBXFileReference; lastKnownFileType = wrapper; path = RealityKitContent; sourceTree = "<group>"; };
 		B4E1CB0C2C18DE3E00A67AF3 /* CatalogsApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CatalogsApp.swift; sourceTree = "<group>"; };
@@ -192,6 +194,7 @@
 		B4BDFFDA2C1B46FF0011EBF7 /* Browsers */ = {
 			isa = PBXGroup;
 			children = (
+				B4DE54282D499626009B37B8 /* EmptyContentMessage.swift */,
 				B42496DA2C2B4E94001760DF /* Books */,
 				B42496DB2C2B4EA5001760DF /* SpatialObjects */,
 				B4F1BC022C2CBAAA003D1066 /* Settings */,
@@ -409,6 +412,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				B4E1CB0F2C18DE3E00A67AF3 /* ContentView.swift in Sources */,
+				B4DE54292D499626009B37B8 /* EmptyContentMessage.swift in Sources */,
 				B4E1CB512C1A346D00A67AF3 /* Image+Extensions.swift in Sources */,
 				B40B89842C1CC28400F8FA47 /* SpatialObjectsView.swift in Sources */,
 				B4E1CB4B2C19052C00A67AF3 /* BookBrowser.swift in Sources */,
