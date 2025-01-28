@@ -48,6 +48,11 @@ enum PresentationStyle {
 // MARK: Convenience Accessors
 extension CatalogsViewModel {
     
+    var navigationTitle: String {
+        selectedTab == .settings ? selectedTab.rawValue :
+        selectedTab == .books ? bookCatalog.title : objectCatalog.title
+    }
+    
     var books: [Book] {
         bookCatalog.books
     }

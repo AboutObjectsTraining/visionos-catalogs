@@ -30,11 +30,7 @@ struct ContentView: View {
                     .tag(Tab.settings)
             }
             .navigationBarTitleDisplayMode(.inline)
-            .navigationTitle(
-                viewModel.selectedTab == .books
-                ? viewModel.bookCatalog.title
-                : viewModel.selectedTab.rawValue
-            )
+            .navigationTitle(viewModel.navigationTitle)
         }
         .frame(minWidth: 600, maxWidth: 1000, minHeight: 500)
     }
