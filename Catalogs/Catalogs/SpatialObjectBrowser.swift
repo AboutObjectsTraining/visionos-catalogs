@@ -49,10 +49,13 @@ struct SpatialObjectBrowser: View {
         .toolbar {
             if viewModel.selectedTab == .objects {
                 ToolbarItemGroup(placement: .topBarTrailing) {
-                    // TODO: Implement 'Add 3D Model' sheet.
-                    EditButton()
-                    Button(action: { }) { Image.plus }
                     Text("\(viewModel.objectsCount) items")
+                        .font(.headline)
+                        .fixedSize()
+                    Spacer()
+                    EditButton()
+                    // TODO: Implement 'Add 3D Model' sheet.
+                    Button(action: { }) { Image.plus }
                 }
                 ToolbarItemGroup(placement: .bottomBar) {
                     Button(action: toggleImmersiveSpace) {
