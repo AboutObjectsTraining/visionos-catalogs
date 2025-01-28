@@ -17,14 +17,15 @@ enum PresentationStyle {
 }
 
 @Observable final class CatalogsViewModel {
-    private static let booksStoreName = "BookCatalog"
-    private let booksDataStore: DataStore
-    private(set) var bookCatalog: BookCatalog
+    private static let bookCatalogStoreName = "BookCatalog"
+    private static let objectCatalogStoreName = "ObjectCatalog"
     
-    private static let objectsStoreName = "ObjectCatalog"
-    private let objectsDataStore: DataStore
-    private(set) var objectCatalog: SpatialObjectCatalog
+    private let bookCatalogDataStore: DataStore
+    private let objectCatalogDataStore: DataStore
     
+    private(set) var bookCatalog = BookCatalog(title: "Empty", books: [])
+    private(set) var objectCatalog = SpatialObjectCatalog(title: "Empty", objects: [])
+
     var presentationStyle = PresentationStyle.list
     
     var selectedTab = Tab.books
@@ -34,14 +35,11 @@ enum PresentationStyle {
     var isShowingImmersiveSpace = false
     
     init(
-        booksDataStore: DataStore = DataStore(storeName: booksStoreName),
-        objectsDataStore: DataStore = DataStore(storeName: objectsStoreName)
+        booksDataStore: DataStore = DataStore(storeName: bookCatalogStoreName),
+        objectsDataStore: DataStore = DataStore(storeName: objectCatalogStoreName)
     ) {
-        self.booksDataStore = booksDataStore
-        self.bookCatalog = BookCatalog(title: "Empty", books: [])
-        
-        self.objectsDataStore = objectsDataStore
-        self.objectCatalog = SpatialObjectCatalog(title: "Empty", objects: [])
+        self.bookCatalogDataStore = booksDataStore
+        self.objectCatalogDataStore = objectsDataStore
     }
 }
 
@@ -87,15 +85,15 @@ extension CatalogsViewModel {
         
         Task {
             do {
-                bookCatalog = try await booksDataStore.fetchBookCatalog()
+                bookCatalog = try await bookCatalogDataStore.fetchBookCatalog()
             } catch {
-                print("Unable to fetch BookCatalog from \(booksDataStore) due to \(error)")
+                print("Unable to fetch \(BookCatalog.self) from \(bookCatalogDataStore) due to \(error)")
             }
         }
     }
     
     func saveBooks() {
-        try? booksDataStore.save(bookCatalog: bookCatalog)
+        try? bookCatalogDataStore.save(bookCatalog: bookCatalog)
     }
     
     func removeBooks(atOffsets offsets: IndexSet) {
@@ -128,9 +126,9 @@ extension CatalogsViewModel {
         
         Task {
             do {
-                objectCatalog = try await objectsDataStore.fetchSpatialObjectCatalog()
+                objectCatalog = try await objectCatalogDataStore.fetchSpatialObjectCatalog()
             } catch {
-                print("Unable to fetch SpatialObjectCatalog from \(objectsDataStore) due to \(error)")
+                print("Unable to fetch \(SpatialObjectCatalog.self) from \(objectCatalogDataStore) due to \(error)")
             }
         }
     }
