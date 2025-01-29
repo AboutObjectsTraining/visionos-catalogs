@@ -25,6 +25,7 @@ struct BookDetail: View {
             imageSection
         }
         .navigationTitle("Book Detail")
+        .navigationBarBackButtonHidden(isEditing)
         .toolbar {
             EditButton()
         }
