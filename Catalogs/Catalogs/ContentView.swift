@@ -11,36 +11,32 @@ struct ContentView: View {
     @Bindable var viewModel: CatalogsViewModel
     
     var body: some View {
-        NavigationStack {
-            TabView(selection: $viewModel.selectedTab) {
-                BookBrowser(viewModel: viewModel)
-                    .tabItem {
-                        Label("Books", systemImage: "books.vertical.fill")
+        TabView(selection: $viewModel.selectedTab) {
+            BookBrowser(viewModel: viewModel)
+                .tabItem {
+                    Label("Books", systemImage: "books.vertical.fill")
+                }
+                .tag(Tab.books)
+                .onAppear {
+                    if !viewModel.hasBooks {
+                        viewModel.loadBooks()
                     }
-                    .tag(Tab.books)
-                    .onAppear {
-                        if !viewModel.hasBooks {
-                            viewModel.loadBooks()
-                        }
+                }
+            SpatialObjectBrowser(viewModel: viewModel)
+                .tabItem {
+                    Label("Models", systemImage: "view.3d")
+                }
+                .tag(Tab.objects)
+                .onAppear {
+                    if !viewModel.hasObjects {
+                        viewModel.loadObjects()
                     }
-                SpatialObjectBrowser(viewModel: viewModel)
-                    .tabItem {
-                        Label("Models", systemImage: "view.3d")
-                    }
-                    .tag(Tab.objects)
-                    .onAppear {
-                        if !viewModel.hasObjects {
-                            viewModel.loadObjects()
-                        }
-                    }
-                SettingsBrowser()
-                    .tabItem {
-                        Label("Settings", systemImage: "gear")
-                    }
-                    .tag(Tab.settings)
-            }
-            .navigationBarTitleDisplayMode(.inline)
-            .navigationTitle(viewModel.navigationTitle)
+                }
+            SettingsBrowser()
+                .tabItem {
+                    Label("Settings", systemImage: "gear")
+                }
+                .tag(Tab.settings)
         }
         .frame(minWidth: 600, maxWidth: 1000, minHeight: 500)
     }

@@ -12,7 +12,8 @@ struct SpaceID {
 @main struct CatalogsApp: App {
     
     @State private var viewModel = CatalogsViewModel()
-    
+    @State private var immersionStyle: ImmersionStyle = .mixed
+
     var body: some Scene {
         WindowGroup {
             ContentView(viewModel: viewModel)
@@ -24,7 +25,7 @@ struct SpaceID {
         ImmersiveSpace(id: SpaceID.spatialObjects) {
             SpatialObjectsView(viewModel: viewModel)
         }
-        .immersionStyle(selection: .constant(.mixed), in: .mixed)
+        .immersionStyle(selection: $immersionStyle, in: .mixed)
     }
     
     init() {

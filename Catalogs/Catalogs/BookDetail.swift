@@ -26,9 +26,7 @@ struct BookDetail: View {
         }
         .navigationTitle("Book Detail")
         .toolbar {
-            ToolbarItemGroup {
-                EditButton()
-            }
+            EditButton()
         }
         .onChange(of: isEditing) {
             isFocused = isEditing

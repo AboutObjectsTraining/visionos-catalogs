@@ -1,7 +1,7 @@
 //
 //  Created 6/11/24 by Jonathan Lehr
 //  Copyright © 2024 About Objects.
-//  
+//
 
 import SwiftUI
 
@@ -27,10 +27,23 @@ struct BookBrowser: View {
             }
         }
         .padding(.bottom, 24)
+        .navigationBarTitleDisplayMode(.inline)
+        .navigationTitle(viewModel.navigationTitle)
+        .toolbar {
+            Text("\(viewModel.booksCount) items")
+                .font(.headline)
+                .fixedSize()
+            Spacer()
+            if viewModel.presentationStyle == .list {
+                EditButton()
+            }
+            Button(action: { viewModel.isAddingBook = true },
+                   label: { Image.plus })
+        }
     }
     
     var body: some View {
-        Group {
+        NavigationStack {
             if !(viewModel.hasBooks && shouldShowBooks) {
                 EmptyContentMessage(itemName: "book")
             } else {
@@ -41,45 +54,20 @@ struct BookBrowser: View {
                 }
             }
         }
-        .toolbar {
-            if viewModel.selectedTab == .books {
-                Text("\(viewModel.booksCount) items")
-                    .font(.headline)
-                    .fixedSize()
-                Spacer()
-                if viewModel.presentationStyle == .list {
-                    EditButton()
-                }
-                Button(action: { viewModel.isAddingBook = true },
-                       label: { Image.plus })
-            }
-
-            //  ToolbarItem(placement: .bottomOrnament) {
-            //      Picker("", selection: $viewModel.bookCatalogStyle) {
-            //          Text("List")
-            //              .tag(BookCatalogStyle.list)
-            //          Text("Grid")
-            //              .tag(BookCatalogStyle.grid)
-            //      }
-            //      .pickerStyle(.segmented)
-            //      .background(Material.thin, in: Capsule())
-            //      .frame(width: 240)
-            //  }
-        }
         .ornament(attachmentAnchor: .scene(.bottom), contentAlignment: .top) {
-                HStack {
-                    Picker("", selection: $viewModel.presentationStyle) {
-                        Text("List")
-                            .tag(PresentationStyle.list)
-                        Text("Grid")
-                            .tag(PresentationStyle.grid)
-                    }
-                    .background(.thinMaterial, in: Capsule())
+            HStack {
+                Picker("", selection: $viewModel.presentationStyle) {
+                    Text("List")
+                        .tag(PresentationStyle.list)
+                    Text("Grid")
+                        .tag(PresentationStyle.grid)
                 }
-                .padding(.horizontal, 12)
-                .frame(width: 240, height: 72)
-                .pickerStyle(.segmented)
-                .glassBackgroundEffect()
+                .background(.thinMaterial, in: Capsule())
+            }
+            .padding(.horizontal, 12)
+            .frame(width: 240, height: 72)
+            .pickerStyle(.segmented)
+            .glassBackgroundEffect()
         }
         .sheet(
             isPresented: $viewModel.isAddingBook,

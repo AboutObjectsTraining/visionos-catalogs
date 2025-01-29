@@ -10,50 +10,44 @@ struct SpatialObjectBrowser: View {
     @Environment(\.openImmersiveSpace) var openImmersiveSpace
     @Environment(\.dismissImmersiveSpace) var dismissImmersiveSpace
     
-    var objectsList: some View {
-        List {
-            ForEach(viewModel.objectCatalog.objects) { object in
-                SpatialObjectCell(object: object)
-                    .onTapGesture {
-                        show(object: object)
-                    }
-            }
-            .onMove { offsets, targetOffset in
-                viewModel.moveObjects(fromOffsets: offsets, toOffset: targetOffset)
-            }
-            // A bit of a hack to work around absence of a hover effect
-            // when the content isn't nested in a NavigationLink.
-            // See also: SpatialObjectCell
-            .listRowInsets(EdgeInsets(top: 0, leading: 0, bottom: 0, trailing: 0))
-        }
-        .padding(.bottom, 24)
-    }
-    
     var body: some View {
-        Group {
+        
+        NavigationStack {
             if !viewModel.objectCatalog.hasObjects {
                 EmptyContentMessage(itemName: "3D model")
             } else {
-                objectsList
-            }
-        }
-        .toolbar {
-            if viewModel.selectedTab == .objects {
-                ToolbarItemGroup(placement: .topBarTrailing) {
-                    Text("\(viewModel.objectsCount) items")
-                        .font(.headline)
-                        .fixedSize()
-                    Spacer()
-                    EditButton()
-                    // TODO: Implement 'Add 3D Model' sheet.
-                    Button(action: { }) { Image.plus }
-                }
-                ToolbarItemGroup(placement: .bottomBar) {
-                    Button(action: dismiss) {
-                        Text("Dismiss Immersive Space")
+                List {
+                    ForEach(viewModel.objectCatalog.objects) { object in
+                        SpatialObjectCell(object: object)
+                            .onTapGesture {
+                                show(object: object)
+                            }
                     }
-                    .buttonStyle(.bordered)
-                    .disabled(!viewModel.isShowingImmersiveSpace)
+                    .onMove { offsets, targetOffset in
+                        viewModel.moveObjects(fromOffsets: offsets, toOffset: targetOffset)
+                    }
+                    .listRowInsets(EdgeInsets(top: 0, leading: 0, bottom: 0, trailing: 0))
+                }
+                .padding(.bottom, 24)
+                .navigationBarTitleDisplayMode(.inline)
+                .navigationTitle(viewModel.navigationTitle)
+                .toolbar {
+                    ToolbarItemGroup(placement: .topBarTrailing) {
+                        Text("\(viewModel.objectsCount) items")
+                            .font(.headline)
+                            .fixedSize()
+                        Spacer()
+                        EditButton()
+                        // TODO: Implement 'Add 3D Model' sheet.
+                        Button(action: { }) { Image.plus }
+                    }
+                    ToolbarItemGroup(placement: .bottomBar) {
+                        Button(action: dismiss) {
+                            Text("Dismiss Immersive Space")
+                        }
+                        .buttonStyle(.bordered)
+                        .disabled(!viewModel.isShowingImmersiveSpace)
+                    }
                 }
             }
         }
@@ -68,11 +62,10 @@ extension SpatialObjectBrowser {
             Task {
                 await openImmersiveSpace(id: SpaceID.spatialObjects)
             }
-            
-            viewModel.isShowingImmersiveSpace = true
         }
         
         viewModel.selectedObject = object
+        viewModel.isShowingImmersiveSpace = true
     }
     
     @MainActor private func dismiss() {
@@ -80,10 +73,9 @@ extension SpatialObjectBrowser {
             Task {
                 await dismissImmersiveSpace()
             }
-            
-            viewModel.isShowingImmersiveSpace = false
         }
         
-        viewModel.selectedObject = nil
+        viewModel.isShowingImmersiveSpace = false
+        // viewModel.selectedObject = nil
     }
 }
