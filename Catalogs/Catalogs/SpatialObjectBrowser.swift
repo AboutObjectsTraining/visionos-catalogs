@@ -1,7 +1,7 @@
 //
 //  Created 6/13/24 by Jonathan Lehr
 //  Copyright © 2024 About Objects.
-//  
+//
 
 import SwiftUI
 
@@ -59,23 +59,22 @@ extension SpatialObjectBrowser {
     
     private func show(object: SpatialObject) {
         if !viewModel.isShowingImmersiveSpace {
+            viewModel.isShowingImmersiveSpace = true
             Task {
                 await openImmersiveSpace(id: SpaceID.spatialObjects)
             }
         }
         
         viewModel.selectedObject = object
-        viewModel.isShowingImmersiveSpace = true
     }
     
     @MainActor private func dismiss() {
         if viewModel.isShowingImmersiveSpace {
+            viewModel.isShowingImmersiveSpace = false
+            viewModel.selectedObject = nil
             Task {
                 await dismissImmersiveSpace()
             }
         }
-        
-        viewModel.isShowingImmersiveSpace = false
-        // viewModel.selectedObject = nil
     }
 }

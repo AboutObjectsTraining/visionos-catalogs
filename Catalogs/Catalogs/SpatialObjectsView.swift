@@ -19,6 +19,8 @@ struct SpatialObjectsView: View {
         RealityView { _ in
             // No default content
         } update: { content in
+            guard viewModel.isShowingImmersiveSpace else { return }
+            
             if let entity = loadSelectedObject() {
                 content.add(entity)
             } else {
