@@ -178,6 +178,7 @@
 			isa = PBXGroup;
 			children = (
 				B44D98712C1B54EA002752F9 /* SpatialObjectBrowser.swift */,
+				B40B89832C1CC28400F8FA47 /* SpatialObjectsView.swift */,
 				B40B897B2C1B8F4F00F8FA47 /* SpatialObjectCell.swift */,
 			);
 			name = SpatialObjects;
@@ -229,7 +230,6 @@
 				B4E1CB0C2C18DE3E00A67AF3 /* CatalogsApp.swift */,
 				B4E1CB1D2C18DFA100A67AF3 /* CatalogsViewModel.swift */,
 				B4E1CB0E2C18DE3E00A67AF3 /* ContentView.swift */,
-				B40B89832C1CC28400F8FA47 /* SpatialObjectsView.swift */,
 				B4BDFFDA2C1B46FF0011EBF7 /* Browsers */,
 				B4E1CB502C1A346D00A67AF3 /* Image+Extensions.swift */,
 				B40B89872C1DF25100F8FA47 /* Entity+Extensions.swift */,
