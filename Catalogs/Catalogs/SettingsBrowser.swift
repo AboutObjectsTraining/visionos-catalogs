@@ -9,10 +9,14 @@ struct SettingsBrowser: View {
     @AppStorage("shouldShowBooks") private var shouldShowBooks = true
 
     var body: some View {
-        Form {
-            Toggle(isOn: $shouldShowBooks) {
-                Label("Show Books", systemImage: "books")
+        NavigationStack {
+            Form {
+                Toggle(isOn: $shouldShowBooks) {
+                    Label("Show Books", systemImage: "books")
+                }
             }
+            .navigationTitle("Settings")
+            .navigationBarTitleDisplayMode(.inline)
         }
     }
 }
