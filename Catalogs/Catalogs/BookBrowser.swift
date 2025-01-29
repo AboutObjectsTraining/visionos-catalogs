@@ -34,9 +34,7 @@ struct BookBrowser: View {
                 .font(.headline)
                 .fixedSize()
             Spacer()
-            if viewModel.presentationStyle == .list {
-                EditButton()
-            }
+            EditButton()
             Button(action: { viewModel.isAddingBook = true },
                    label: { Image.plus })
         }
@@ -87,22 +85,34 @@ struct BookGrid: View {
     ]
     
     var body: some View {
-        ScrollView {
-            LazyVGrid(columns: Self.gridItems) {
-                ForEach(viewModel.books) { book in
-                    ZStack {
-                        NavigationLink {
-                            BookDetail(book: book, viewModel: viewModel)
-                        } label: {
-                            coverImage(book: book)
+        NavigationStack {
+            ScrollView {
+                LazyVGrid(columns: Self.gridItems) {
+                    ForEach(viewModel.books) { book in
+                        ZStack {
+                            NavigationLink {
+                                BookDetail(book: book, viewModel: viewModel)
+                            } label: {
+                                coverImage(book: book)
+                            }
+                            // super unintuitive setting here 🤦🏻‍♂️
+                            .buttonStyle(PlainButtonStyle())
                         }
-                        // super unintuitive setting here 🤦🏻‍♂️
-                        .buttonStyle(PlainButtonStyle())
                     }
                 }
             }
+            .padding(.horizontal, 24)
+            .navigationBarTitleDisplayMode(.inline)
+            .navigationTitle(viewModel.navigationTitle)
+            .toolbar {
+                Text("\(viewModel.booksCount) items")
+                    .font(.headline)
+                    .fixedSize()
+                Spacer()
+                Button(action: { viewModel.isAddingBook = true },
+                       label: { Image.plus })
+            }
         }
-        .padding(.horizontal, 24)
     }
     
     func coverImage(book: Book) -> some View {
