@@ -6,7 +6,8 @@
 import SwiftUI
 
 struct SpatialObjectCell: View {
-    var object: SpatialObject
+    let viewModel: CatalogsViewModel
+    let object: SpatialObject
     
     var body: some View {
         // The ZStack here is a bit of a hack to work around absence
@@ -22,6 +23,7 @@ struct SpatialObjectCell: View {
             .padding(.horizontal, 12)
         }
         .background(.regularMaterial)
-        .hoverEffect(.lift)
+        .hoverEffect()
+        .hoverEffectDisabled(!viewModel.isShowingImmersiveSpace)
     }
 }

@@ -18,7 +18,7 @@ struct SpatialObjectBrowser: View {
             } else {
                 List {
                     ForEach(viewModel.objectCatalog.objects) { object in
-                        SpatialObjectCell(object: object)
+                        SpatialObjectCell(viewModel: viewModel, object: object)
                             .onTapGesture {
                                 load(object: object)
                             }
@@ -45,11 +45,16 @@ struct SpatialObjectBrowser: View {
                         Group {
                             if viewModel.isShowingImmersiveSpace {
                                 Button("Dismiss Immersive Space", action: dismiss)
+                                    .tint(.red)
                             } else {
                                 Button("Launch Immersive Space", action: launch)
+                                    .tint(.blue)
                             }
                         }
+                        .padding(.bottom, 24)
                         .buttonStyle(.bordered)
+                        .controlSize(.large)
+                        .font(.title3)
                     }
                 }
             }
