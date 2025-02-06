@@ -20,7 +20,7 @@ struct SpatialObjectBrowser: View {
                     ForEach(viewModel.objectCatalog.objects) { object in
                         SpatialObjectCell(object: object)
                             .onTapGesture {
-                                show(object: object)
+                                load(object: object)
                             }
                     }
                     .onMove { offsets, targetOffset in
@@ -42,11 +42,14 @@ struct SpatialObjectBrowser: View {
                         Button(action: { }) { Image.plus }
                     }
                     ToolbarItemGroup(placement: .bottomBar) {
-                        Button(action: dismiss) {
-                            Text("Dismiss Immersive Space")
+                        Group {
+                            if viewModel.isShowingImmersiveSpace {
+                                Button("Dismiss Immersive Space", action: dismiss)
+                            } else {
+                                Button("Launch Immersive Space", action: launch)
+                            }
                         }
                         .buttonStyle(.bordered)
-                        .disabled(!viewModel.isShowingImmersiveSpace)
                     }
                 }
             }
@@ -57,24 +60,31 @@ struct SpatialObjectBrowser: View {
 // MARK: - Actions
 extension SpatialObjectBrowser {
     
-    private func show(object: SpatialObject) {
-        if !viewModel.isShowingImmersiveSpace {
-            viewModel.isShowingImmersiveSpace = true
-            Task {
-                await openImmersiveSpace(id: SpaceID.spatialObjects)
-            }
-        }
+    private func launch() {
+        guard !viewModel.isShowingImmersiveSpace else { return }
         
-        viewModel.selectedObject = object
+        viewModel.isShowingImmersiveSpace = true
+        Task {
+            await openImmersiveSpace(id: SpaceID.spatialObjects)
+        }
     }
     
-    @MainActor private func dismiss() {
-        if viewModel.isShowingImmersiveSpace {
-            viewModel.isShowingImmersiveSpace = false
+    private func dismiss() {
+        guard viewModel.isShowingImmersiveSpace else { return }
+        
+        viewModel.isShowingImmersiveSpace = false
+        viewModel.selectedObject = nil
+        Task {
+            await dismissImmersiveSpace()
+        }
+    }
+    
+    private func load(object: SpatialObject) {
+        viewModel.selectedObject = object
+        // Workaround for an issue where the second tap loads the
+        // same object as the first regardless which row is tapped.
+        DispatchQueue.main.async() {
             viewModel.selectedObject = nil
-            Task {
-                await dismissImmersiveSpace()
-            }
         }
     }
 }
