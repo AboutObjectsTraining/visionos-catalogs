@@ -47,7 +47,7 @@ struct BookCell: View {
         .onAppear {
             if !viewModel.hasBooks {
                 Task {
-                    await viewModel.loadBooks()
+                    viewModel.loadBooks()
                 }
             }
         }
