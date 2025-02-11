@@ -38,3 +38,17 @@ struct BookCell: View {
     .frame(width: 600)
     .glassBackgroundEffect()
 }
+
+#Preview("List", windowStyle: .automatic, traits: .fixedLayout(width: 600, height: 600)) {
+    
+    let viewModel = CatalogsViewModel()
+    
+    BookBrowser(viewModel: viewModel)
+        .onAppear {
+            if !viewModel.hasBooks {
+                Task {
+                    await viewModel.loadBooks()
+                }
+            }
+        }
+}
