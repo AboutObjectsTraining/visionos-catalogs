@@ -45,7 +45,6 @@ struct SpatialObjectsView: View {
         
         configure(entity: entity)
         
-        // .print(entity)
         return entity
     }
     
@@ -84,7 +83,6 @@ struct SpatialObjectsView: View {
 
 // MARK: - Animation Support
 struct MyAnimationComponent: Component {
-    
     var isAnimating = false
 }
 
@@ -100,6 +98,7 @@ extension Entity {
     
     func toggleAnimation() {
         guard let animation = availableAnimations.first else { return }
+        
         if isAnimating {
             stopAllAnimations()
         } else {
